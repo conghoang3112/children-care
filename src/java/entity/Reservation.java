@@ -21,12 +21,11 @@ public class Reservation {
     private String status;
     private String issue;
     private User user;
-    private Patient patient;
 
     public Reservation() {
     }
 
-    public Reservation(int id, TimeSlot timeSlot, Doctor doctor, Date dateBooking, String phoneContact, String status, String issue, User user, Patient patient) {
+    public Reservation(int id, TimeSlot timeSlot, Doctor doctor, Date dateBooking, String phoneContact, String status, String issue, User user) {
         this.id = id;
         this.timeSlot = timeSlot;
         this.doctor = doctor;
@@ -35,7 +34,6 @@ public class Reservation {
         this.status = status;
         this.issue = issue;
         this.user = user;
-        this.patient = patient;
     }
 
     public int getId() {
@@ -100,14 +98,6 @@ public class Reservation {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
 }

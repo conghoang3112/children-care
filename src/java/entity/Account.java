@@ -5,35 +5,36 @@
  */
 package entity;
 
+
 /**
  *
- * @author Admin
+ * @author congh
  */
 public class Account {
-
-    private int id;
+    private int acc_id;
     private String username;
     private String password;
     private String email;
-    private Role role;
+    private int roleId;
 
     public Account() {
     }
 
-    public Account(int id, String username, String password, String email, Role role) {
-        this.id = id;
+    public Account(int acc_id, String username, String password, String email, int roleId) {
+        this.acc_id = acc_id;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.role = role;
+        this.roleId = roleId;
     }
 
-    public int getId() {
-        return id;
+
+    public int getAcc_id() {
+        return acc_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAcc_id(int acc_id) {
+        this.acc_id = acc_id;
     }
 
     public String getUsername() {
@@ -60,12 +61,18 @@ public class Account {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public int getRoleId() {
+        return roleId;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" + "acc_id=" + acc_id + ", username=" + username + ", password=" + password + ", email=" + email + ", roleId=" + roleId + '}';
+    }
+    
+    
 }
