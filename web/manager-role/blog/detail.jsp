@@ -69,10 +69,7 @@
                             <img src="../assets/images/blog/single.jpg" class="img-fluid" alt="">
 
                             <div class="p-4">
-                                <!-- <ul class="list-unstyled">
-                                    <li class="list-inline-item user text-muted me-2"><i class="mdi mdi-account"></i> Calvin Carlo</li>
-                                    <li class="list-inline-item date text-muted"><i class="mdi mdi-calendar-check"></i> 1st January, 2021</li>
-                                </ul> -->
+                               
 
                                 <p class="text-muted">This is required when, for example, the final text is not yet available. Dummy text is also known as 'fill text'. It is said that song composers of the past used dummy texts as lyrics when writing melodies in order to have a 'ready-made' text to sing with the melody. Dummy texts have been in use by typesetters since the 16th century.</p>
                                 <p class="text-muted">Due to its widespread use as filler text for layouts, non-readability is of great importance: human perception is tuned to recognize certain patterns and repetitions in texts.</p>
@@ -174,6 +171,8 @@
                                             </div>
                                         </div><!--end col-->
 
+                                        
+                                        
                                         <div class="col-lg-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Your Email <span class="text-danger">*</span></label>
@@ -267,6 +266,8 @@
                 </div><!--end row-->
             </div>
         </div><!--end container-->
+        
+        
 
         <jsp:include page="../common/footer.jsp"></jsp:include>
     </main>
@@ -301,6 +302,9 @@
                     </div>
                 </div>
                 <!-- end Style switcher -->
+                
+                
+                
             </div><!--end col-->
         </div><!--end row-->
     </div>
@@ -317,6 +321,8 @@
         </ul><!--end icon-->
     </div>
 </div>
+
+
 <!-- Offcanvas End -->
 
 <!-- javascript -->

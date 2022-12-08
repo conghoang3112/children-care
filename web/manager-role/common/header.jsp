@@ -10,9 +10,14 @@
         <a href="#" class="logo-icon">
           <img src="../assets/images/logo-icon.png" height="30" class="small" alt="">
           <span class="big">
+              
+              
                                       <img src="../assets/images/logo-dark.png" height="24" class="logo-light-mode" alt="">
                                       <img src="../assets/images/logo-light.png" height="24" class="logo-dark-mode" alt="">
                                   </span>
+          
+          
+          
         </a>
         <a id="close-sidebar" class="btn btn-icon btn-pills btn-soft-primary ms-2" href="#">
           <i class="uil uil-bars"></i>
@@ -29,6 +34,9 @@
         </div>
       </div>
 
+        
+        
+        
       <ul class="list-unstyled mb-0">
         <li class="list-inline-item mb-0">
           <div class="dropdown dropdown-primary">
@@ -40,6 +48,9 @@
                   <small class="text-dark mb-0">Chinese</small>
                 </div>
               </a>
+                
+                
+                
 
               <a href="javascript:void(0)" class="d-flex align-items-center mt-2">
                 <img src="../assets/images/language/european.png" class="avatar avatar-client rounded-circle shadow" alt="">
@@ -62,6 +73,10 @@
                 </div>
               </a>
 
+                
+                
+                
+                
               <a href="javascript:void(0)" class="d-flex align-items-center mt-2">
                 <img src="../assets/images/language/russian.png" class="avatar avatar-client rounded-circle shadow" alt="">
                 <div class="flex-1 text-left ms-2 overflow-hidden">
@@ -86,10 +101,17 @@
             <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 px-2 py-2" data-simplebar style="height: 320px; width: 300px;">
               <a href="#" class="d-flex align-items-center justify-content-between py-2">
                 <div class="d-inline-flex position-relative overflow-hidden">
+                    
+                    
+                    
                   <img src="../assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
                   <small class="text-dark mb-0 d-block text-truncat ms-3">You received a new email from <b>Janalia</b> <small class="text-muted fw-normal d-inline-block">1 hour ago</small></small>
                 </div>
               </a>
+                
+                
+                
+                
 
               <a href="#" class="d-flex align-items-center justify-content-between py-2 border-top">
                 <div class="d-inline-flex position-relative overflow-hidden">
@@ -97,6 +119,10 @@
                   <small class="text-dark mb-0 d-block text-truncat ms-3">You received a new email from <b>codepen</b>  <small class="text-muted fw-normal d-inline-block">4 hour ago</small></small>
                 </div>
               </a>
+                
+                
+                
+                
 
               <a href="#" class="d-flex align-items-center justify-content-between py-2 border-top">
                 <div class="d-inline-flex position-relative overflow-hidden">
@@ -104,6 +130,10 @@
                   <small class="text-dark mb-0 d-block text-truncat ms-3">You received a new email from <b>Cristina</b> <small class="text-muted fw-normal d-inline-block">5 hour ago</small></small>
                 </div>
               </a>
+                
+                
+                
+                
 
               <a href="#" class="d-flex align-items-center justify-content-between py-2 border-top">
                 <div class="d-inline-flex position-relative overflow-hidden">
@@ -111,6 +141,11 @@
                   <small class="text-dark mb-0 d-block text-truncat ms-3">You received a new email from <b>Dribbble</b> <small class="text-muted fw-normal d-inline-block">24 hour ago</small></small>
                 </div>
               </a>
+                
+                
+                
+                
+                
 
               <a href="#" class="d-flex align-items-center justify-content-between py-2 border-top">
                 <div class="d-inline-flex position-relative overflow-hidden">
@@ -118,6 +153,11 @@
                   <small class="text-dark mb-0 d-block text-truncat ms-3">You received a new email from <b>Donald Aghori</b> <small class="text-muted fw-normal d-inline-block">1 day ago</small></small>
                 </div>
               </a>
+                
+                
+                
+                
+                
 
               <a href="#" class="d-flex align-items-center justify-content-between py-2 border-top">
                 <div class="d-inline-flex position-relative overflow-hidden">
@@ -128,6 +168,11 @@
             </div>
           </div>
         </li>
+        
+        
+        
+        
+        
 
         <li class="list-inline-item mb-0 ms-1">
           <div class="dropdown dropdown-primary">
@@ -139,6 +184,10 @@
                   <span class="d-block mb-1">Calvin Carlo</span>
                   <small class="text-muted">Orthopedic</small>
                 </div>
+                
+                
+                
+                
               </a>
               <a class="dropdown-item text-dark" href="index.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
               <a class="dropdown-item text-dark" href="dr-profile.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-setting align-middle h6"></i></span> Profile Settings</a>
