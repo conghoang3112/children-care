@@ -44,6 +44,6 @@ public class AccountDAO {
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
         Account a = dao.checkLogin("admin1", "123");
-        System.out.println(a.toString());
+        System.out.println(a);
     }
 }
