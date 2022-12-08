@@ -5,8 +5,6 @@
  */
 package control;
 
-import DAO.UserDAOIplm;
-import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -61,18 +59,6 @@ public class ViewUserProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-<<<<<<< HEAD:src/java/control/ViewUserProfileController.java
-=======
-         UserDAOIplm dao = new UserDAOIplm();
-        
-        User user = new User();
-        user=dao.getUserByID(12);
-        request.setAttribute("user", user);
-        String s=request.getContextPath();
-       
-        request.setAttribute("s", s);
-        request.getRequestDispatcher("ViewUserProfile.jsp").forward(request, response);
->>>>>>> main:src/java/control/ViewUserController.java
     }
 
     /**
