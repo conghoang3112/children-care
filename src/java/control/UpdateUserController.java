@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewUserController", urlPatterns = {"/ViewUserController"})
-public class ViewUserController extends HttpServlet {
+@WebServlet(name = "UpdateUserController", urlPatterns = {"/UpdateUserController"})
+public class UpdateUserController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +34,8 @@ public class ViewUserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-     
+      
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,15 +51,16 @@ public class ViewUserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         UserDAOIplm dao = new UserDAOIplm();
-        
+         processRequest(request, response);
+       UserDAOIplm dao = new UserDAOIplm();
+        String s=request.getParameter("id");
+       // int id= Integer.parseInt(s);
         User user = new User();
         user=dao.getUserByID(12);
-        request.setAttribute("user", user);
-        String s=request.getContextPath();
-       
-        request.setAttribute("s", s);
-        request.getRequestDispatcher("ViewUserProfile.jsp").forward(request, response);
+        System.out.println(user);
+        request.setAttribute("update",user);
+        //System.out.println(user);
+        request.getRequestDispatcher("UpdateUserProfile.jsp").forward(request, response);
     }
 
     /**
@@ -70,9 +72,27 @@ public class ViewUserController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(req, resp);
+         processRequest(req, resp);
+        String fName=req.getParameter("fisrtName");
+        String lName=req.getParameter("lastName");
+        String phone=req.getParameter("phone");
+        String sex=req.getParameter("sex");
+        boolean sexdata= true;
+        if(sex.equals("Male")){
+            sexdata=true;
+        }else if(sex.equals("FeMale")){
+             sexdata=false;
+        }
+        String address =req.getParameter("address");
+        
+       String avate = req.getParameter("avata");
+       UserDAOIplm dao= new UserDAOIplm();
+       User user = new User(12, fName, lName, phone, address, avate, sexdata);
+      dao.UpdateUserbyId(user);
+      resp.sendRedirect(req.getContextPath()+"/ViewUserController");
     }
 
     /**
