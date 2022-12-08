@@ -1,17 +1,29 @@
 /*
+<<<<<<< HEAD
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+=======
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+>>>>>>> main
  */
 package DAO;
 
 import Context.DBContext;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 import entity.Account;
 import entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+<<<<<<< HEAD
+=======
+import java.util.Map;
+>>>>>>> main
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +32,7 @@ import java.util.logging.Logger;
  * @author duan1
  */
 public class UserDAOIplm implements UserDAO{
+<<<<<<< HEAD
 
      public static void main(String[] args) {
        UserDAOIplm dao = new UserDAOIplm();
@@ -36,6 +49,21 @@ public class UserDAOIplm implements UserDAO{
             Connection conn = new  DBContext().getConnection();
             
           
+=======
+ public static void main(String[] args) {
+        UserDAOIplm dao = new UserDAOIplm();
+        User user = dao.getUserByID(12);
+        System.out.println(user);
+        //dao.UpdateUserbyId(new User(12, "Nguyen ","Duan", "0123456789", "Nam Dinh", "avata", true));
+    }
+    @Override
+    public User getUserByID(int Id) {
+       User user = null ;
+      
+        try {
+            
+            Connection conn = new DBContext().getConnection();
+>>>>>>> main
             String sql = "SELECT [user_id]\n" +
 "      ,[first_name]\n" +
 "      ,[last_name]\n" +
@@ -57,6 +85,7 @@ public class UserDAOIplm implements UserDAO{
             
             
             
+<<<<<<< HEAD
         } catch (Exception ex) {
             Logger.getLogger(UserDAOIplm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,6 +95,19 @@ public class UserDAOIplm implements UserDAO{
     @Override
     public boolean UpdateUserbyId(User user) {
          boolean flag=false;
+=======
+        
+        } catch (Exception ex) {
+            Logger.getLogger(UserDAOIplm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }  
+   
+
+    @Override
+    public boolean UpdateUserbyId(User user) {
+        boolean flag=false;
+>>>>>>> main
      try {
          Connection conn = new DBContext().getConnection();
          String sql = "UPDATE [dbo].[User]\n" +
@@ -95,6 +137,13 @@ public class UserDAOIplm implements UserDAO{
          Logger.getLogger(UserDAOIplm.class.getName()).log(Level.SEVERE, null, ex);
      }
      return flag;
+<<<<<<< HEAD
     }
     
 }
+=======
+        
+    }
+}
+
+>>>>>>> main
