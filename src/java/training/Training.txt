@@ -1,0 +1,3 @@
+UML Use Case Diagram Tutorial:  https://www.youtube.com/watch?v=zid-MVo7M-E
+How to change password using jsp:    https://www.youtube.com/watch?v=AN8fcbKItSQ
+How to Reset Password using JSP and Servlet with MySQL | Forgot Password in JAVA:   https://www.youtube.com/watch?v=pGae-FOb5z8
