@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javaee-endorsed-api-7.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/nblibraries.properties/javaee-endorsed-api-7.0/jsr181-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/nblibraries.properties/javaee-endorsed-api-7.0/javaee-doc-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
