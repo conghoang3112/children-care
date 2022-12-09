@@ -10,6 +10,7 @@
         <a href="index.html">
           <img src="../assets/images/logo-dark.png" height="24" class="logo-light-mode" alt="">
           <img src="../assets/images/logo-light.png" height="24" class="logo-dark-mode" alt="">
+            ChildrenCare
         </a>
       </div>
 
