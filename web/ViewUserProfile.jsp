@@ -147,7 +147,7 @@
                 </div>
                 <div class="row">
                     <div class=" col-6 ps-5 pt-2 text-center" >
-                        <a  class="btn btn-primary" href="${s}/UpdateUserController" role="button">Update Profile</a>
+                        <a  class="btn btn-primary" href="${s}/UpdateUserProfileController" role="button">Update Profile</a>
                     </div>
 
                 </div>
