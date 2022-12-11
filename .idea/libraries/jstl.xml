@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jstl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/nblibraries.properties/jstl/jstl-impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/nblibraries.properties/jstl/jstl-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/nblibraries.properties/jstl/javaee-doc-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

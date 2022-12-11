@@ -5,8 +5,9 @@
  */
 package DAO;
 
-import Context.DBContext;
+import context.DBContext;
 import entity.Account;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,6 +45,6 @@ public class AccountDAO {
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
         Account a = dao.checkLogin("admin1", "123");
-        System.out.println(a.toString());
+        System.out.println(a);
     }
 }

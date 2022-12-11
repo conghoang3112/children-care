@@ -73,6 +73,8 @@ response.sendRedirect("index.html");
         AccountDAO dao = new AccountDAO();
         Account a = dao.checkLogin(username, pass);
         if (a != null) {
+            //HttpSession session = request.getSession();
+            //session.setAttribute("acc", a);
             request.getRequestDispatcher("HomePage.jsp").forward(request, response);
         } else {
             request.setAttribute("mess", "user or pass wrong");

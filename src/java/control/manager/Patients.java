@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control.manager;
+
+package control.manager;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,10 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
+<<<<<<< HEAD:src/java/control/NewServlet.java
+ * @author duan1
+=======
  * @author win
+>>>>>>> main:src/java/control/manager/Patients.java
  */
-@WebServlet(name = "Reservation", urlPatterns = {"/Reservation"})
-public class Reservation extends HttpServlet {
+@WebServlet(name = "Patients", urlPatterns = {"/Patients"})
+public class Patients extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +42,10 @@ public class Reservation extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Reservation</title>");            
+            out.println("<title>Servlet Patients</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Reservation at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Patients at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

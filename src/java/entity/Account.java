@@ -24,6 +24,10 @@ public class Account {
         this.acc_id = acc_id;
     }
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> main
     public Account(int acc_id, String username, String password, String email, int roleId) {
         this.acc_id = acc_id;
         this.username = username;
@@ -31,6 +35,8 @@ public class Account {
         this.email = email;
         this.roleId = roleId;
     }
+
+    
 
 
     public int getAcc_id() {
