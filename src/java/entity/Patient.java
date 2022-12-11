@@ -34,6 +34,13 @@ public class Patient {
         this.note = note;
     }
 
+    public Patient(int patientId, String patientName, Date dob, boolean sex) {
+        this.id = patientId;
+        this.name = patientName;
+        this.dob = dob;
+        this.sex = sex;
+    }
+
     public int getId() {
         return id;
     }

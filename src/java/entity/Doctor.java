@@ -14,6 +14,7 @@ public class Doctor {
     private int id;
     private Account account;
     private Specialist specialist;
+    private DoctorProfile doctorProfile;
 
     public Doctor() {
     }
@@ -22,6 +23,14 @@ public class Doctor {
         this.id = id;
         this.account = account;
         this.specialist = specialist;
+    }
+
+    public DoctorProfile getDoctorProfile() {
+        return doctorProfile;
+    }
+
+    public void setDoctorProfile(DoctorProfile doctorProfile) {
+        this.doctorProfile = doctorProfile;
     }
 
     public int getId() {
