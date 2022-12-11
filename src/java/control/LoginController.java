@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,8 +51,8 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       processRequest(request, response);
-
+        processRequest(request, response);
+response.sendRedirect("index.html");
     }
 
     /**
@@ -73,6 +73,8 @@ public class LoginController extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         Account a = dao.checkLogin(username, pass);
         if (a != null) {
+            //HttpSession session = request.getSession();
+            //session.setAttribute("acc", a);
             request.getRequestDispatcher("HomePage.jsp").forward(request, response);
         } else {
             request.setAttribute("mess", "user or pass wrong");

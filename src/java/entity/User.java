@@ -23,6 +23,16 @@ public class User {
     public User() {
     }
 
+    public User(int id, String firstName, String lastName, String phone, String address, String avatar, boolean sex) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.address = address;
+        this.avatar = avatar;
+        this.sex = sex;
+    }
+
     public User(int id, Account account, String firstName, String lastName, String phone, String address, String avatar, boolean sex) {
         this.id = id;
         this.account = account;
@@ -96,6 +106,11 @@ public class User {
 
     public void setSex(boolean sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", account=" + account + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", address=" + address + ", avatar=" + avatar + ", sex=" + sex + '}';
     }
 
 }

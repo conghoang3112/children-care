@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Doctris - Doctor Appointment Booking System</title>
+    <title>Children Care</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.ico.png">
@@ -68,10 +68,16 @@
                                     <p class="text-muted mb-0">For best results, use an image at least 600px by 600px in either .jpg or .png format</p>
                                 </div><!--end col-->
 
+
+
+
                                 <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
                                     <a href="#" class="btn btn-primary">Upload</a>
                                     <a href="#" class="btn btn-soft-primary ms-2">Remove</a>
                                 </div><!--end col-->
+
+
+
                             </div><!--end row-->
 
                             <form class="mt-4">
@@ -140,6 +146,9 @@
                                         </div>
                                     </div><!--end col-->
 
+
+
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Facebook</label>
@@ -161,6 +170,9 @@
                                     </div><!--end col-->
 
                                     <div class="col-md-6">
+
+
+
                                         <div class="mb-3">
                                             <label class="form-label">Twitter</label>
                                             <div class="input-group flex-nowrap">
@@ -214,6 +226,9 @@
                                     <img src="../assets/images/doctors/03.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                                     <div class="ms-md-3 mt-4 mt-sm-0">
+
+
+
                                         <a href="#" class="text-dark h6">Dr. Cristina Luly</a>
                                         <p class="text-muted my-1">Orthopedic</p>
                                         <p class="text-muted mb-0">5 Years Experienced</p>
@@ -224,6 +239,9 @@
                                     <img src="../assets/images/doctors/04.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                                     <div class="ms-md-3 mt-4 mt-sm-0">
+
+
+
                                         <a href="#" class="text-dark h6">Dr. Dwayen Maria</a>
                                         <p class="text-muted my-1">Gastrologist</p>
                                         <p class="text-muted mb-0">2 Years Experienced</p>
@@ -245,6 +263,8 @@
                                 </li>
                             </ul>
                         </div>
+
+
                     </div>
                 </div><!--end row-->
             </div>
