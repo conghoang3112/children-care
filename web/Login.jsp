@@ -34,7 +34,7 @@
                             <input name="username" class="form-control" id="inputEmail" placeholder="User name">
                         </div>
                         <div class="form-group">
-                            <input name="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
                         </div>
                         <div class="forgot">
                             <a href="reset.html">Forgot password?</a>
