@@ -106,4 +106,9 @@ public class User {
         this.sex = sex;
     }
 
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", account=" + account + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", address=" + address + ", avatar=" + avatar + ", sex=" + sex + '}';
+    }
+
 }
