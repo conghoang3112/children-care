@@ -5,35 +5,31 @@
  */
 package entity;
 
-
 /**
  *
- * @author congh
+ * @author duan1
  */
-public class Account {
-    private int acc_id;
+public class Account1 {
+     private int acc_id;
     private String username;
     private String password;
     private String email;
     private int roleId;
 
-    public Account() {
+    public Account1() {
     }
 
-    public Account(int acc_id) {
+    public Account1(int acc_id) {
         this.acc_id = acc_id;
     }
 
-    public Account(int acc_id, String username, String password, String email, int roleId) {
+    public Account1(int acc_id, String username, String password, String email, int roleId) {
         this.acc_id = acc_id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.roleId = roleId;
     }
-
-    
-
 
     public int getAcc_id() {
         return acc_id;
@@ -77,8 +73,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "acc_id=" + acc_id + ", username=" + username + ", password=" + password + ", email=" + email + ", roleId=" + roleId + '}';
+        return "Account1{" + "acc_id=" + acc_id + ", username=" + username + ", password=" + password + ", email=" + email + ", roleId=" + roleId + '}';
     }
-    
     
 }
