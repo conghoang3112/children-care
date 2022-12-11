@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package control;
 
 import DAO.AccountDAO;
 import entity.Account;
@@ -11,18 +11,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author congh
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/loginController"})
-public class LoginController extends HttpServlet {
+@WebServlet(name = "signUpController", urlPatterns = {"/signUpController"})
+public class signUpController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +34,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +50,7 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-response.sendRedirect("index.html");
+//        response.sendRedirect("SignUp.jsp");
     }
 
     /**
@@ -67,18 +65,25 @@ response.sendRedirect("index.html");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String username = request.getParameter("username");
-        String pass = request.getParameter("password");
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        String repass = request.getParameter("repass");
 
-        AccountDAO dao = new AccountDAO();
-        Account a = dao.checkLogin(username, pass);
-        if (a != null) {
-            //HttpSession session = request.getSession();
-            //session.setAttribute("acc", a);
-            request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+        if (!pass.equals(repass)) {
+            request.setAttribute("mess", "pass and repass dif");
+            request.getRequestDispatcher("SignUp.jsp").
+                    forward(request, response);
         } else {
-            request.setAttribute("mess", "user or pass wrong");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+            AccountDAO dao = new AccountDAO();
+            Account a = dao.checkAccExist(user);
+            if (a == null) {
+                dao.singup(user, pass);
+                response.sendRedirect("Login.jsp");
+            } else {
+                request.setAttribute("mess", "The registration name is identical");
+                request.getRequestDispatcher("SignUp.jsp").
+                        forward(request, response);
+            }
         }
     }
 
