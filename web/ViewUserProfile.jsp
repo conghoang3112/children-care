@@ -13,7 +13,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AddConservation</title>
+        <title>ViewUserProfile</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -147,7 +147,7 @@
                 </div>
                 <div class="row">
                     <div class=" col-6 ps-5 pt-2 text-center" >
-                        <a  class="btn btn-primary" href="${s}/UpdateUserController" role="button">Update Profile</a>
+                        <a  class="btn btn-primary" href="${s}/UpdateUserProfileController" role="button">Update Profile</a>
                     </div>
 
                 </div>
