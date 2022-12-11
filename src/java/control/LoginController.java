@@ -79,9 +79,6 @@ public class LoginController extends HttpServlet {
         } else {
             request.setAttribute("mess", "user or pass wrong");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
-            
-            
-            
         }
     }
 
