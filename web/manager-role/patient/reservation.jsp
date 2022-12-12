@@ -85,13 +85,15 @@
                     </div><!--end col-->
                 </div><!--end row-->
 
+
+
                 <div class="row">
                     <div class="col-12 mt-4">
                         <div class="table-responsive bg-white shadow rounded">
                             <table class="table mb-0 table-center">
                                 <thead>
                                 <tr>
-                                    <th class="border-bottom p-3" style="min-width: 50px;">#</th>
+                                    <th class="border-bottom p-3" style="min-width: 50px;">No</th>
                                     <th class="border-bottom p-3" style="min-width: 180px;">Name</th>
                                     <th class="border-bottom p-3" style="min-width: 150px;">Email</th>
                                     <th class="border-bottom p-3">Age</th>
@@ -100,8 +102,6 @@
                                     <th class="border-bottom p-3" style="min-width: 150px;">Date</th>
                                     <th class="border-bottom p-3">Time</th>
                                     <th class="border-bottom p-3" style="min-width: 220px;">Doctor</th>
-<%--                                    <th class="border-bottom p-3">Fees</th>--%>
-<%--                                    <th class="border-bottom p-3" style="min-width: 150px;"></th>--%>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -112,13 +112,13 @@
                                         <td class="p-3">
                                             <a href="#" class="text-dark">
                                                 <div class="d-flex align-items-center">
-                                                    <img src="${reservation.user.patient.avatar}" class="avatar avatar-md-sm rounded-circle shadow" alt="">
+                                                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/${reservation.user.patient.avatar}" class="avatar avatar-md-sm rounded-circle shadow" alt="">
                                                     <span class="ms-2">${reservation.user.patient.name}</span>
                                                 </div>
                                             </a>
                                         </td>
                                         <td class="p-3">${reservation.user.account.email}</td>
-                                        <td class="p-3"><fmt:formatDate pattern = "yyyy-MM-dd" value = "${reservation.user.patient.dob}" /></td>
+                                        <td class="p-3">${reservation.user.patient.age}</td>
                                         <td class="p-3">${reservation.user.patient.sex == false ? "Male" : "Female"}</td>
                                         <td class="p-3">${reservation.doctor.specialist.name}</td>
                                         <td class="p-3"><fmt:formatDate pattern = "yyyy-MM-dd" value = "${reservation.dateBooking}" /></td>
@@ -126,44 +126,13 @@
                                         <td class="p-3">
                                             <a href="#" class="text-dark">
                                                 <div class="d-flex align-items-center">
-                                                    <img src="${reservation.doctor.doctorProfile.avatar}" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                                                    <span class="ms-2">${reservation.doctor.doctorProfile.firstName.concat(reservation.doctor.doctorProfile.lastName)}</span>
+                                                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/${reservation.doctor.doctorProfile.avatar}" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                                                    <span class="ms-2">${reservation.doctor.doctorProfile.firstName.concat(" ").concat(reservation.doctor.doctorProfile.lastName)}</span>
                                                 </div>
                                             </a>
                                         </td>
                                     </tr>
                                 </c:forEach>
-<%--                                <tr>--%>
-<%--                                    <th class="p-3">1</th>--%>
-<%--                                    <td class="p-3">--%>
-<%--                                        <a href="#" class="text-dark">--%>
-<%--                                            <div class="d-flex align-items-center">--%>
-<%--                                                <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">--%>
-<%--                                                <span class="ms-2">Howard Tanner</span>--%>
-<%--                                            </div>--%>
-<%--                                        </a>--%>
-<%--                                    </td>--%>
-<%--                                    <td class="p-3">howard@contact.com</td>--%>
-<%--                                    <td class="p-3">25</td>--%>
-<%--                                    <td class="p-3">Male</td>--%>
-<%--                                    <td class="p-3">Cardiology</td>--%>
-<%--                                    <td class="p-3">20th Dec 2020</td>--%>
-<%--                                    <td class="p-3">11:00AM</td>--%>
-<%--                                    <td class="p-3">--%>
-<%--                                        <a href="#" class="text-dark">--%>
-<%--                                            <div class="d-flex align-items-center">--%>
-<%--                                                <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">--%>
-<%--                                                <span class="ms-2">Dr. Calvin Carlo</span>--%>
-<%--                                            </div>--%>
-<%--                                        </a>--%>
-<%--                                    </td>--%>
-<%--                                    <td class="p-3">$50/Patient</td>--%>
-<%--                                    <td class="text-end p-3">--%>
-<%--                                        <a href="#" class="btn btn-icon btn-pills btn-soft-primary" data-bs-toggle="modal" data-bs-target="#viewappointment"><i class="uil uil-eye"></i></a>--%>
-<%--                                        <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptappointment"><i class="uil uil-check-circle"></i></a>--%>
-<%--                                        <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#cancelappointment"><i class="uil uil-times-circle"></i></a>--%>
-<%--                                    </td>--%>
-<%--                                </tr>--%>
                                 </tbody>
                             </table>
                         </div>
@@ -172,34 +141,34 @@
 
                 </div><!--end row-->
 
-                <c:if test="${totalPage > 1}">
-                    <div class="row text-center">
-                        <!-- PAGINATION START -->
-                        <div class="col-12 mt-4">
-                            <div class="d-md-flex align-items-center text-center justify-content-between">
+            <c:if test="${totalPage > 1}">
+                <div class="row text-center">
+                    <!-- PAGINATION START -->
+                    <div class="col-12 mt-4">
+                        <div class="d-md-flex align-items-center text-center justify-content-between">
 <%--                                <span class="text-muted me-3">Showing 1 - 10 out of 50</span>--%>
-                                <ul class="pagination justify-content-center mb-0 mt-3 mt-sm-0">
-                                    <c:if test="${currentPage != 1}">
+                            <ul class="pagination justify-content-center mb-0 mt-3 mt-sm-0">
+                                <c:if test="${currentPage != 1}">
 <%--                                        <li class="page-item">--%>
 <%--                                            <a class="page-link" onclick="searchHomeClient(this)" href="#" data-current_page="${currentPage - 1}">Previous</a>--%>
 <%--                                        </li>--%>
-                                        <li class="page-item">
-                                            <a class="page-link" href="/reservation?pageNumber=${currentPage - 1}" aria-label="Previous">Previous</a>
-                                        </li>
-                                    </c:if>
-                                    <c:forEach var="i" begin="1" end="${totalPage}">
-                                        <li class="page-item ${i == currentPage ? ' active' : ''}">
-                                            <a class="page-link" href="/reservation?pageNumber=${i}" href="#">${i}</a>
-                                        </li>
-                                    </c:forEach>
-                                    <c:if test="${currentPage < totalPage}">
-                                        <li class="page-item"><a class="page-link" href="/reservation?pageNumber=${currentPage + 1}" aria-label="Next">Next</a></li>
-                                    </c:if>
-                                </ul>
-                            </div>
-                    </div><!--end col-->
-                        <!-- PAGINATION END -->
-                </c:if>
+                                    <li class="page-item">
+                                        <a class="page-link" href="${pageContext.request.contextPath}/reservation?pageNumber=${currentPage - 1}" aria-label="Previous">Previous</a>
+                                    </li>
+                                </c:if>
+                                <c:forEach var="i" begin="1" end="${totalPage}">
+                                    <li class="page-item ${i == currentPage ? ' active' : ''}">
+                                        <a class="page-link" href="${pageContext.request.contextPath}/reservation?pageNumber=${i}" href="#">${i}</a>
+                                    </li>
+                                </c:forEach>
+                                <c:if test="${currentPage < totalPage}">
+                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/reservation?pageNumber=${currentPage + 1}" aria-label="Next">Next</a></li>
+                                </c:if>
+                            </ul>
+                        </div>
+                </div><!--end col-->
+                    <!-- PAGINATION END -->
+            </c:if>
             </div>
         </div><!--end container-->
         <jsp:include page="../common/footer.jsp"></jsp:include>
