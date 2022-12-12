@@ -19,6 +19,10 @@ public class Doctor {
     public Doctor() {
     }
 
+    public Doctor(int id) {
+        this.id = id;
+    }
+
     public Doctor(int id, Account account, Specialist specialist) {
         this.id = id;
         this.account = account;
@@ -55,6 +59,11 @@ public class Doctor {
 
     public void setSpecialist(Specialist specialist) {
         this.specialist = specialist;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" + "id=" + id + ", account=" + account + ", specialist=" + specialist + ", doctorProfile=" + doctorProfile + '}';
     }
 
 }

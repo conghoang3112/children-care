@@ -24,6 +24,10 @@ public class User {
     public User() {
     }
 
+    public User(int id) {
+        this.id = id;
+    }
+
     public User(int id, String firstName, String lastName, String phone, String address, String avatar, boolean sex) {
         this.id = id;
         this.firstName = firstName;
