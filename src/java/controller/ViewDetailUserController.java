@@ -35,10 +35,12 @@ public class ViewDetailUserController extends HttpServlet {
       
         String id= request.getParameter("id");
         System.out.println(id);
+
         int reserId=Integer.parseInt(id);
         request.setAttribute("reserId", reserId);
         request.getRequestDispatcher("").forward(request, response);
         
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
