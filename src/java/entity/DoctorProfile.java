@@ -21,6 +21,9 @@ public class DoctorProfile {
     private String avatar;
     private boolean sex;
     private String addressHospital;
+    private String email;
+    private String phone;
+    private int experience;
 
     public DoctorProfile() {
     }
@@ -34,6 +37,30 @@ public class DoctorProfile {
         this.avatar = avatar;
         this.sex = sex;
         this.addressHospital = addressHospital;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getId() {

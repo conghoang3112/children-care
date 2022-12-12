@@ -52,12 +52,12 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 				sql.append("SELECT * FROM ( ");
 			}
 			sql.append("SELECT a.doctor_id, a.acc_id, a.specialist_id, a.profile_id, a.room_id, b.specialist_name, " +
-					"c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital, " +
+					"c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital, c.experience, " +
 					"ROW_NUMBER() OVER(ORDER BY b.specialist_name DESC) as rownumber " +
 					"FROM Doctor a " +
 					"INNER JOIN Specialist b ON b.specialist_id = a.specialist_id " +
 					"INNER JOIN DoctorProfile c ON c.profile_id = a.profile_id ");
-			sql.append(" GROUP BY a.doctor_id, a.acc_id, a.specialist_id, a.profile_id, a.room_id, b.specialist_name, c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital ");
+			sql.append(" GROUP BY a.doctor_id, a.acc_id, a.specialist_id, a.profile_id, a.room_id, b.specialist_name, c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital, c.experience ");
 			if (start != 0 && end != 0) {
 				sql.append(") k WHERE k.rownumber BETWEEN ? AND ?");
 			}
@@ -83,6 +83,7 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 				Date dob = rs.getDate("dob");
 				boolean sex = rs.getBoolean("sex");
 				String addressHospital = rs.getString("address_hospital");
+				int experience = rs.getInt("experience");
 
 				Doctor doctor = new Doctor();
 				doctor.setId(doctorId);
@@ -96,6 +97,7 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 				doctorProfile.setSex(sex);
 				doctorProfile.setDob(dob);
 				doctorProfile.setAddressHospital(addressHospital);
+				doctorProfile.setExperience(experience);
 
 				doctor.setDoctorProfile(doctorProfile);
 

@@ -5,6 +5,7 @@ import DAO.TungDoctorDaoImpl;
 import DAO.TungSpecialistDao;
 import DAO.TungSpecialistDaoImpl;
 import entity.Doctor;
+import entity.DoctorProfile;
 import entity.Specialist;
 
 import javax.servlet.ServletException;
@@ -37,6 +38,28 @@ public class TungDoctorAddController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//        processRequest(request, response);
+		try {
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			String email = request.getParameter("email");
+			String phone = request.getParameter("number");
+			int specialist = Integer.parseInt(request.getParameter("specialist"));
+			int gender = Integer.parseInt(request.getParameter("gender"));
+			String comments = request.getParameter("comments");
+
+			DoctorProfile doctorProfile = new DoctorProfile();
+			doctorProfile.setFirstName(firstName);
+			doctorProfile.setLastName(lastName);
+			doctorProfile.setEmail(email);
+			doctorProfile.setPhone(phone);
+			doctorProfile.setAvatar("");
+			doctorProfile.setSex(gender == 0 ? false : true);
+			doctorProfile.setAddressHospital(comments);
+
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 }

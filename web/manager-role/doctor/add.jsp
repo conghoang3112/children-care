@@ -60,62 +60,56 @@
                 <div class="row">
                     <div class="col-lg-8 mt-4">
                         <div class="card border-0 p-4 rounded shadow">
-                            <div class="row align-items-center">
-                                <div class="col-lg-2 col-md-4">
-                                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
-                                </div><!--end col-->
 
-                                <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
-                                    <h5 class="">Upload your picture</h5>
-                                    <p class="text-muted mb-0">For best results, use an image at least 600px by 600px in either .jpg or .png format</p>
-                                </div><!--end col-->
+                            <form class="mt-4" method="POST" action="${pageContext.request.contextPath}/doctors/add">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-2 col-md-4">
+                                        <img id="addDoctorImage" src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
+                                    </div><!--end col-->
+                                    <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
+                                        <h5 class="">Upload your picture</h5>
+                                        <p class="text-muted mb-0">For best results, use an image at least 600px by 600px in either .jpg or .png format</p>
+                                    </div><!--end col-->
+                                    <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
+<%--                                        <a href="#" class="btn btn-primary">Upload</a>--%>
+                                        <input type="file" name="image" onchange="viewUploadFile(event);" class="btn btn-primary" style="color:transparent; width:109px;">
+                                        <a href="#" class="btn btn-soft-primary ms-2" onclick="removePreviewImage()">Remove</a>
+                                    </div><!--end col-->
+                                </div><!--end row-->
 
-
-
-
-                                <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
-                                    <a href="#" class="btn btn-primary">Upload</a>
-                                    <a href="#" class="btn btn-soft-primary ms-2">Remove</a>
-                                </div><!--end col-->
-
-
-
-                            </div><!--end row-->
-
-                            <form class="mt-4">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">First Name</label>
-                                            <input name="name" id="name" type="text" class="form-control" placeholder="First Name :">
+                                            <input name="firstName" id="name" type="text" class="form-control" placeholder="First Name :" required>
                                         </div>
                                     </div><!--end col-->
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Last Name</label>
-                                            <input name="name" id="name2" type="text" class="form-control" placeholder="Last Name :">
+                                            <input name="lastName" id="name2" type="text" class="form-control" placeholder="Last Name :" required>
                                         </div>
                                     </div><!--end col-->
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Your Email</label>
-                                            <input name="email" id="email" type="email" class="form-control" placeholder="Your email :">
+                                            <input name="email" id="email" type="email" class="form-control" placeholder="Your email :" required>
                                         </div>
                                     </div><!--end col-->
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Phone no.</label>
-                                            <input name="number" id="number" type="text" class="form-control" placeholder="Phone no. :">
+                                            <input name="number" id="number" type="text" class="form-control" placeholder="Phone no. :" required>
                                         </div>
                                     </div><!--end col-->
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Departments</label>
-                                            <select class="form-control department-name select2input">
+                                            <select class="form-control department-name select2input" name="specialist">
                                                 <c:forEach items="${specialistList}" var="specialist">
                                                     <option value="${specialist.id}">${specialist.name}</option>
                                                 </c:forEach>
@@ -126,7 +120,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Gender</label>
-                                            <select class="form-control gender-name select2input">
+                                            <select class="form-control gender-name select2input" name="gender">
                                                 <option value="0">Male</option>
                                                 <option value="1">Female</option>
                                             </select>
@@ -160,7 +154,7 @@
                                         <div class="ms-md-3 mt-4 mt-sm-0">
                                             <a href="#" class="text-dark h6">${doctor.doctorProfile.firstName.concat(" ").concat(doctor.doctorProfile.lastName)}</a>
                                             <p class="text-muted my-1">${doctor.specialist.name}</p>
-<%--                                            <p class="text-muted mb-0">3 Years Experienced</p>--%>
+                                            <p class="text-muted mb-0">${doctor.doctorProfile.experience} Years Experienced</p>
                                         </div>
                                     </li>
                                 </c:forEach>
@@ -300,6 +294,7 @@
 <!-- Main Js -->
 <script src="${pageContext.request.contextPath}/manager-role/assets/js/app.js"></script>
 
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/upload_file_util.js"></script>
 </body>
 
 </html>
