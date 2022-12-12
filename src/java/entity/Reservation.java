@@ -22,6 +22,7 @@ public class Reservation {
     private String issue;
     private User user;
 
+
     public Reservation() {
     }
 

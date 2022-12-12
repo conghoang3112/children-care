@@ -8,8 +8,8 @@
     <div class="sidebar-content" data-simplebar style="height: calc(100% - 60px);">
       <div class="sidebar-brand">
         <a href="index.html">
-          <img src="../assets/images/logo-dark.png" height="24" class="logo-light-mode" alt="">
-          <img src="../assets/images/logo-light.png" height="24" class="logo-dark-mode" alt="">
+          <img src="${pageContext.request.contextPath}/manager-role/assets/images/logo-dark.png" height="24" class="logo-light-mode" alt="">
+          <img src="${pageContext.request.contextPath}/manager-role/assets/images/logo-light.png" height="24" class="logo-dark-mode" alt="">
             ChildrenCare
         </a>
       </div>

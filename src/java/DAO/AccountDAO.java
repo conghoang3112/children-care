@@ -48,7 +48,6 @@ public class AccountDAO {
 //        Account a = dao.checkLogin("admin1", "123");
 //        System.out.println(a);
 //    }
-
     public Account checkAccExist(String userName) {
         String query = "select * from Account\n"
                 + "where [username] = ?";
@@ -91,10 +90,77 @@ public class AccountDAO {
         } catch (Exception e) {
         }
     }
+//    public static void main(String[] args) {
+//        AccountDAO dao = new AccountDAO();
+////        dao.singup("cong", "123");
+//        Account a = dao.checkAccExist("cong");
+//        System.out.println(a);
+//    }
+
+    public Account findAccById(int id) {
+        String query = "select * from Account\n"
+                + "where [acc_id] = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+//    public static void main(String[] args) {
+//        AccountDAO dao = new AccountDAO();
+//        Account a = dao.findAccById(32);
+//        System.out.println(a);
+//    }    
+
+    public void changePass(int id, String pass) {
+        String query = "UPDATE [dbo].[Account]\n"
+                + "   SET [password] = ?\n"
+                + " WHERE acc_id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, pass);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public Account forgotPass(String pass, String email) {
+        String query = "UPDATE [dbo].[Account]\n"
+                + "   SET [password] = ?\n"
+                + " WHERE [email] = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, pass);
+            ps.setString(2, email);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
-//        dao.singup("cong", "123");
-        Account a = dao.checkAccExist("cong");
+        Account a = dao.forgotPass("1234567890", "conghxhe140876@fpt.edu.vn");
         System.out.println(a);
     }
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package control.manager;
+package controllerTung;
 
 import java.io.IOException;
 import java.io.PrintWriter;

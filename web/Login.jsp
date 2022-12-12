@@ -37,7 +37,7 @@
                             <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
                         </div>
                         <div class="forgot">
-                            <a href="reset.html">Forgot password?</a>
+                            <a href="forgotPassword.jsp">Forgot password?</a>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                         <a>${mess}</a>
