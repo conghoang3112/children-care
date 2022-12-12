@@ -2,6 +2,7 @@ package DAO;
 
 import context.DBContext;
 import entity.*;
+import utils.TungUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,10 +48,12 @@ public class TungReservationDaoImpl extends DBContext implements TungReservation
                 int patientId = rs.getInt("patient_id");
                 String patientName = rs.getString("name");
                 Date dob = rs.getDate("dob");
+                int age = TungUtils.calculateAge(dob);
                 boolean sex = rs.getBoolean("sex");
                 String patientAvatar = rs.getString("patientAvatar");
                 Patient patient = new Patient(patientId, patientName, dob, sex);
                 patient.setAvatar(patientAvatar);
+                patient.setAge(age);
 
                 User user = new User();
                 user.setAccount(account);

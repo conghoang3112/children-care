@@ -38,7 +38,7 @@ public class ViewDetailUserController extends HttpServlet {
 
         int reserId=Integer.parseInt(id);
         request.setAttribute("reserId", reserId);
-        request.getRequestDispatcher("").forward(request, response);
+        request.getRequestDispatcher("ViewUserDeTail.jsp").forward(request, response);
         
 
     }

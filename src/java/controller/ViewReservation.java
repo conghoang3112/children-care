@@ -54,7 +54,7 @@ public class ViewReservation extends HttpServlet {
         processRequest(request, response);
        int uid=12;
        request.setAttribute("uid", uid);
-        request.getRequestDispatcher("ViewListReservation.jsp").forward(request, response);
+        request.getRequestDispatcher("ViewUserDeTail.jsp").forward(request, response);
     }
 
     /**

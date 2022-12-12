@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViewUserDetail</title>
+    <title>AddConservation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -51,75 +51,95 @@
         </nav>
     </div>
     <div class="row ">
-        <div class="container">
-           <div class="row d-flex justify-content-evenly pt-5 p-5">
-            
-            <div class="col-5">
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Special"> Special:</label>
-                        <input type="text"disabled value="SPE">
-                    </div>
-                    
-
-
+        <div class="container pt-5 p-5">
+            <h2>Feedback</h2>
+            <div class="row pt-5 ps-5" style="height: 300px;">
+                <div class="col-2 pt-5 ">
+                    <img src="pic_trulli.jpg" alt="vatar">
+                    ></image>
                 </div>
-                <div class="row  d-flex ">
+                7<div class="col-7 ">
+                    <div class="row pt-5 ">
 
-                    <div class="col ms-5 mt-5">
-                        <label for="Date">Date : &nbsp;</label>
-                        <input type="text"disabled value="SPE">
+                        <p id="name"><label for="name">Name : &nbsp;</label>DOCRTOR NAME</p>
+
                     </div>
-                    
+                    <div class="row ">
 
+                        <p id="Special"><label for="Special">Special : &nbsp;</label>Special NAME</p>
 
+                    </div>
+                    <div class="row ">
+
+                        <p id="Certificate"><label for="Special">Special : &nbsp;</label>Special</p>
+
+                    </div>
                 </div>
+                <div class="col ">
+                    <button type="button">Details</button>
+                </div>
+                <hr>
             </div>
-            <div class="col-5">
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Doctor">Doctor:</label>
-                        <input type="text"disabled value="SPE">
-                    </div>
-                    
-
-
+            <div class="row pt-5 ps-5" style="height: 300px;">
+                <div class="col-2 pt-5 ">
+                    <img src="pic_trulli.jpg" alt="vatar">
+                    ></image>
                 </div>
-                <div class="row  d-flex ">
+                <div class="col-7 ">
+                    <div class="row pt-5 ">
 
-                    <div class="col ms-5 mt-5">
-                        <label for="Time">Time :&nbsp;</label>
-                        <input type="text"disabled value="SPE">
+                        <p id="name"><label for="name">Name : &nbsp;</label>DOCRTOR NAME</p>
+
                     </div>
-                    
+                    <div class="row ">
 
+                        <p id="Special"><label for="Special">Special : &nbsp;</label>Special NAME</p>
 
-                </div>
-            </div>
-           </div>
-          
-           <div class="row d-flex justify-content-sm-center">
-            
-            <div class="col-8">
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Isues">Isues : &nbsp;</label>
-                        <textarea name="Isues" id="" cols="100" rows="5" disabled=""></textarea>
                     </div>
-                    
+                    <div class="row ">
 
+                        <p id="Certificate"><label for="Special">Special : &nbsp;</label>Special</p>
 
+                    </div>
                 </div>
+                <div class="col ">
+                    <button type="button">Details</button>
+                </div>
+                <hr>
             </div>
-            
-           </div>
+            <div class="row pt-5 ps-5" style="height: 300px;">
+                <div class="col-2 pt-5 ">
+                    <img src="pic_trulli.jpg" alt="vatar">
+                    ></image>
+                </div>
+                <div class="col-7 ">
+                    <div class="row pt-5 ">
 
+                        <p id="name"><label for="name">Name : &nbsp;</label>DOCRTOR NAME</p>
+
+                    </div>
+                    <div class="row ">
+
+                        <p id="Special"><label for="Special">Special : &nbsp;</label>Special NAME</p>
+
+                    </div>
+                    <div class="row ">
+
+                        <p id="Certificate"><label for="Special">Special : &nbsp;</label>Special</p>
+
+                    </div>
+                </div>
+                <div class="col ">
+                    <button type="button">Details</button>
+                </div>
+                <hr>
             </div>
+
         </div>
-        </div>
+
+    </div>
+    </div>
+    </div>
     </div>
 
     </div>
