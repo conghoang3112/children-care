@@ -101,4 +101,9 @@ public class Reservation {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+        return "Reservation{" + "id=" + id + ", timeSlot=" + timeSlot + ", doctor=" + doctor + ", dateBooking=" + dateBooking + ", phoneContact=" + phoneContact + ", status=" + status + ", issue=" + issue + ", user=" + user + '}';
+    }
+
 }
