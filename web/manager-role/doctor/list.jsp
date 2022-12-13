@@ -70,15 +70,15 @@
                             <div class="card team border-0 rounded shadow overflow-hidden">
                                 <div class="team-img position-relative">
                                     <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/${doctor.doctorProfile.avatar}" class="img-fluid" alt="">
-                                    <ul class="list-unstyled team-social mb-0">
-                                        <li><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                                        <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                                        <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="instagram" class="icons"></i></a></li>
-                                        <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                                    </ul>
+<%--                                    <ul class="list-unstyled team-social mb-0">--%>
+<%--                                        <li><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>--%>
+<%--                                        <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>--%>
+<%--                                        <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="instagram" class="icons"></i></a></li>--%>
+<%--                                        <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>--%>
+<%--                                    </ul>--%>
                                 </div>
                                 <div class="card-body content text-center">
-                                    <a href="dr-profile.html" class="title text-dark h5 d-block mb-0">
+                                    <a href="/doctorProfile?doctorId=${doctor.id}&doctorProfileId=${doctor.doctorProfile.id}" class="title text-dark h5 d-block mb-0">
                                             ${doctor.doctorProfile.firstName.concat(" ").concat(doctor.doctorProfile.lastName)}</a>
                                     <small class="text-muted speciality">${doctor.specialist.name}</small>
                                 </div>

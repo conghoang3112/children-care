@@ -12,4 +12,8 @@ public interface TungDoctorDao {
 	List<Doctor> find(int start, int end) throws SQLException;
 
     boolean add(Doctor doctor, DoctorProfile doctorProfile);
+
+	Doctor findById(int doctorId, int doctorProfileId);
+
+	List<Doctor> findAnotherDoctor(int doctorId, int doctorProfileId);
 }

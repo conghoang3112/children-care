@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -8,19 +9,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="../assets/images/favicon.ico.png">
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/manager-role/assets/images/favicon.ico.png">
   <!-- Bootstrap -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="${pageContext.request.contextPath}/manager-role/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <!-- simplebar -->
-  <link href="../assets/css/simplebar.css" rel="stylesheet" type="text/css" />
+  <link href="${pageContext.request.contextPath}/manager-role/assets/css/simplebar.css" rel="stylesheet" type="text/css" />
   <!-- SLIDER -->
-  <link href="../assets/css/tiny-slider.css" rel="stylesheet" />
+  <link href="${pageContext.request.contextPath}/manager-role/assets/css/tiny-slider.css" rel="stylesheet" />
   <!-- Icons -->
-  <link href="../assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-  <link href="../assets/css/remixicon.css" rel="stylesheet" type="text/css" />
+  <link href="${pageContext.request.contextPath}/manager-role/assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+  <link href="${pageContext.request.contextPath}/manager-role/assets/css/remixicon.css" rel="stylesheet" type="text/css" />
   <link href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"  rel="stylesheet">
   <!-- Css -->
-  <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+  <link href="${pageContext.request.contextPath}/manager-role/assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
 
 </head>
 
@@ -50,7 +51,7 @@
 
           <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
             <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
-              <li class="breadcrumb-item"><a href="index.html">Doctris</a></li>
+              <li class="breadcrumb-item"><a href="index.html">ChildrenCard</a></li>
               <li class="breadcrumb-item"><a href="doctors.html">Doctor</a></li>
               <li class="breadcrumb-item active" aria-current="page">Profile</li>
             </ul>
@@ -60,10 +61,10 @@
         <div class="card bg-white rounded shadow overflow-hidden mt-4 border-0">
           <div class="p-5 bg-primary bg-gradient"></div>
           <div class="avatar-profile d-flex margin-nagative mt-n5 position-relative ps-3">
-            <img src="../assets/images/doctors/01.jpg" class="rounded-circle shadow-md avatar avatar-medium" alt="">
+            <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/${doctor.doctorProfile.avatar}" class="rounded-circle shadow-md avatar avatar-medium" alt="">
             <div class="mt-4 ms-3 pt-3">
-              <h5 class="mt-3 mb-1">Dr. Calvin Carlo</h5>
-              <p class="text-muted mb-0">Orthopedic</p>
+              <h5 class="mt-3 mb-1">${doctor.doctorProfile.firstName.concat(" ").concat(doctor.doctorProfile.lastName)}</h5>
+              <p class="text-muted mb-0">${doctor.specialist.name}</p>
             </div>
           </div>
 
@@ -129,230 +130,53 @@
                     <h6 class="mb-0">My Team: </h6>
 
                     <div class="row row-cols-md-2 row-cols-lg-5">
-                      <div class="col mt-4">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                          <div class="team-person position-relative overflow-hidden">
-                            <img src="../assets/images/doctors/05.jpg" class="img-fluid" alt="">
-                            <ul class="list-unstyled team-like">
-                              <li><a href="#" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                          <div class="card-body">
-                            <a href="#" class="title text-dark h5 d-block mb-0">Jessica McFarlane</a>
-                            <small class="text-muted speciality">M.B.B.S, Dentist</small>
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                              <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                      <c:forEach items="${anotherDoctorList}" var="anotherDoctor">
+                        <div class="col mt-4">
+                          <div class="card team border-0 rounded shadow overflow-hidden">
+                            <div class="team-person position-relative overflow-hidden">
+                              <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/${anotherDoctor.doctorProfile.avatar}" class="img-fluid" alt="">
+                              <ul class="list-unstyled team-like">
+                                <li><a href="#" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
                               </ul>
-                              <p class="text-muted mb-0">5 Star</p>
                             </div>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="d-flex">
-                                <i class="ri-map-pin-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">63, PG Shustoke, UK</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-time-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">Mon: 2:00PM - 6:00PM</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-money-dollar-circle-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">$ 75 USD / Visit</small>
-                              </li>
-                            </ul>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                            </ul>
+                            <div class="card-body">
+                              <a href="#" class="title text-dark h5 d-block mb-0">${anotherDoctor.doctorProfile.firstName.concat(" ").concat(anotherDoctor.doctorProfile.lastName)}</a>
+                              <small class="text-muted speciality">${anotherDoctor.specialist.name}</small>
+                              <div class="d-flex justify-content-between align-items-center mt-2">
+                                <ul class="list-unstyled mb-0">
+                                  <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                  <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                  <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                  <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                  <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                </ul>
+                                <p class="text-muted mb-0">5 Star</p>
+                              </div>
+                              <ul class="list-unstyled mt-2 mb-0">
+                                <li class="d-flex">
+                                  <i class="ri-map-pin-line text-primary align-middle"></i>
+                                  <small class="text-muted ms-2">${anotherDoctor.doctorProfile.addressHospital}</small>
+                                </li>
+                                <li class="d-flex mt-2">
+                                  <i class="ri-time-line text-primary align-middle"></i>
+                                  <small class="text-muted ms-2">Mon: 2:00PM - 6:00PM</small>
+                                </li>
+                                <li class="d-flex mt-2">
+                                  <i class="ri-money-dollar-circle-line text-primary align-middle"></i>
+                                  <small class="text-muted ms-2">$ 75 USD / Visit</small>
+                                </li>
+                              </ul>
+                              <ul class="list-unstyled mt-2 mb-0">
+                                <li class="list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
+                                <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
+                                <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
+                                <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                      </div><!--end col-->
+                        </div><!--end col-->
+                      </c:forEach>
 
-                      <div class="col mt-4">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                          <div class="team-person position-relative overflow-hidden">
-                            <img src="../assets/images/doctors/06.jpg" class="img-fluid" alt="">
-                            <ul class="list-unstyled team-like">
-                              <li><a href="#" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                          <div class="card-body">
-                            <a href="#" class="title text-dark h5 d-block mb-0">Elsie Sherman</a>
-                            <small class="text-muted speciality">M.B.B.S, Gastrologist</small>
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                              <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                              </ul>
-                              <p class="text-muted mb-0">5 Star</p>
-                            </div>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="d-flex">
-                                <i class="ri-map-pin-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">63, PG Shustoke, UK</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-time-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">Mon: 2:00PM - 6:00PM</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-money-dollar-circle-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">$ 75 USD / Visit</small>
-                              </li>
-                            </ul>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div><!--end col-->
-
-                      <div class="col mt-4">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                          <div class="team-person position-relative overflow-hidden">
-                            <img src="../assets/images/doctors/07.jpg" class="img-fluid" alt="">
-                            <ul class="list-unstyled team-like">
-                              <li><a href="#" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                          <div class="card-body">
-                            <a href="#" class="title text-dark h5 d-block mb-0">Bertha Magers</a>
-                            <small class="text-muted speciality">M.B.B.S, Urologist</small>
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                              <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                              </ul>
-                              <p class="text-muted mb-0">5 Star</p>
-                            </div>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="d-flex">
-                                <i class="ri-map-pin-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">63, PG Shustoke, UK</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-time-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">Mon: 2:00PM - 6:00PM</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-money-dollar-circle-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">$ 75 USD / Visit</small>
-                              </li>
-                            </ul>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div><!--end col-->
-
-                      <div class="col mt-4">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                          <div class="team-person position-relative overflow-hidden">
-                            <img src="../assets/images/doctors/08.jpg" class="img-fluid" alt="">
-                            <ul class="list-unstyled team-like">
-                              <li><a href="#" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                          <div class="card-body">
-                            <a href="#" class="title text-dark h5 d-block mb-0">Louis Batey</a>
-                            <small class="text-muted speciality">M.B.B.S, Neurologist</small>
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                              <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                              </ul>
-                              <p class="text-muted mb-0">5 Star</p>
-                            </div>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="d-flex">
-                                <i class="ri-map-pin-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">63, PG Shustoke, UK</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-time-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">Mon: 2:00PM - 6:00PM</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-money-dollar-circle-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">$ 75 USD / Visit</small>
-                              </li>
-                            </ul>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div><!--end col-->
-
-                      <div class="col mt-4">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                          <div class="team-person position-relative overflow-hidden">
-                            <img src="../assets/images/doctors/02.jpg" class="img-fluid" alt="">
-                            <ul class="list-unstyled team-like">
-                              <li><a href="#" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                          <div class="card-body">
-                            <a href="#" class="title text-dark h5 d-block mb-0">Cristino Murphy</a>
-                            <small class="text-muted speciality">M.B.B.S, Gynecologist</small>
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                              <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                              </ul>
-                              <p class="text-muted mb-0">5 Star</p>
-                            </div>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="d-flex">
-                                <i class="ri-map-pin-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">63, PG Shustoke, UK</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-time-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">Mon: 2:00PM - 6:00PM</small>
-                              </li>
-                              <li class="d-flex mt-2">
-                                <i class="ri-money-dollar-circle-line text-primary align-middle"></i>
-                                <small class="text-muted ms-2">$ 75 USD / Visit</small>
-                              </li>
-                            </ul>
-                            <ul class="list-unstyled mt-2 mb-0">
-                              <li class="list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                              <li class="mt-2 list-inline-item"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div><!--end col-->
                     </div><!--end row-->
                   </div><!--end teb pane-->
 
@@ -418,7 +242,7 @@
                         <div class="client-review-slider">
                           <div class="tiny-slide text-center">
                             <p class="text-muted h6 fw-normal fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
-                            <img src="../assets/images/client/01.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/01.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
                             <ul class="list-unstyled mb-0">
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -431,7 +255,7 @@
 
                           <div class="tiny-slide text-center">
                             <p class="text-muted h6 fw-normal fst-italic">" The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout. "</p>
-                            <img src="../assets/images/client/02.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/02.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
                             <ul class="list-unstyled mb-0">
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -444,7 +268,7 @@
 
                           <div class="tiny-slide text-center">
                             <p class="text-muted h6 fw-normal fst-italic">" There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or nonsensical stories. "</p>
-                            <img src="../assets/images/client/03.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/03.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
                             <ul class="list-unstyled mb-0">
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -457,7 +281,7 @@
 
                           <div class="tiny-slide text-center">
                             <p class="text-muted h6 fw-normal fst-italic">" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero in 45 BC. Allegedly, a Latin scholar established the origin of the text by compiling all the instances of the unusual word 'consectetur' he could find "</p>
-                            <img src="../assets/images/client/04.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/04.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
                             <ul class="list-unstyled mb-0">
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -470,7 +294,7 @@
 
                           <div class="tiny-slide text-center">
                             <p class="text-muted h6 fw-normal fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
-                            <img src="../assets/images/client/05.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/05.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
                             <ul class="list-unstyled mb-0">
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -483,7 +307,7 @@
 
                           <div class="tiny-slide text-center">
                             <p class="text-muted h6 fw-normal fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. One may speculate that over the course of time certain letters were added or deleted at various positions within the text. "</p>
-                            <img src="../assets/images/client/06.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/06.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
                             <ul class="list-unstyled mb-0">
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                               <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -499,27 +323,27 @@
 
                     <div class="row justify-content-center">
                       <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/amazon.png" class="avatar avatar-client" alt="">
+                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/amazon.png" class="avatar avatar-client" alt="">
                       </div><!--end col-->
 
                       <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/google.png" class="avatar avatar-client" alt="">
+                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/google.png" class="avatar avatar-client" alt="">
                       </div><!--end col-->
 
                       <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/lenovo.png" class="avatar avatar-client" alt="">
+                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/lenovo.png" class="avatar avatar-client" alt="">
                       </div><!--end col-->
 
                       <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/paypal.png" class="avatar avatar-client" alt="">
+                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/paypal.png" class="avatar avatar-client" alt="">
                       </div><!--end col-->
 
                       <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/shopify.png" class="avatar avatar-client" alt="">
+                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/shopify.png" class="avatar avatar-client" alt="">
                       </div><!--end col-->
 
                       <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/spotify.png" class="avatar avatar-client" alt="">
+                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/spotify.png" class="avatar avatar-client" alt="">
                       </div><!--end col-->
                     </div><!--end row-->
                   </div><!--end teb pane-->
@@ -570,7 +394,7 @@
                           <div class="card-body p-0 mt-4">
                             <h5 class="title fw-bold">Phone</h5>
                             <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
-                            <a href="tel:+152534-468-854" class="link">+152 534-468-854</a>
+                            <a href="tel:+152534-468-854" class="link">${doctor.doctorProfile.phone}</a>
                           </div>
                         </div>
                       </div><!--end col-->
@@ -584,7 +408,7 @@
                           <div class="card-body p-0 mt-4">
                             <h5 class="title fw-bold">Email</h5>
                             <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
-                            <a href="mailto:contact@example.com" class="link">contact@example.com</a>
+                            <a href="mailto:contact@example.com" class="link">${doctor.doctorProfile.email}</a>
                           </div>
                         </div>
                       </div><!--end col-->
@@ -603,7 +427,7 @@
                           <div class="p-4">
                             <div class="row align-items-center">
                               <div class="col-lg-2 col-md-4">
-                                <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
+                                <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
                               </div><!--end col-->
 
                               <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
@@ -813,16 +637,16 @@
 <!-- page-wrapper -->
 
 <!-- javascript -->
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/bootstrap.bundle.min.js"></script>
 <!-- simplebar -->
-<script src="../assets/js/simplebar.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/simplebar.min.js"></script>
 <!-- SLIDER -->
-<script src="../assets/js/tiny-slider.js"></script>
-<script src="../assets/js/tiny-slider-init.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/tiny-slider.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/tiny-slider-init.js"></script>
 <!-- Icons -->
-<script src="../assets/js/feather.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/feather.min.js"></script>
 <!-- Main Js -->
-<script src="../assets/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/app.js"></script>
 
 </body>
 
