@@ -58,10 +58,10 @@
             <div class="col-5">
                 <div class="row  d-flex ">
 
-                    <div class="col ms-5 mt-5">
-                        <label for="Special"> Special:</label>
-                        <input type="text"disabled value="SPE">
-                    </div>
+                     <div class="col ms-5 mt-5">
+                        <label for="Doctor">Phone:</label>
+                        <input type="text"disabled value="${re.doctor.doctorProfile.firstName} ${re.doctor.doctorProfile.lastName}">
+                    </div> 
                     
 
 
@@ -70,7 +70,17 @@
 
                     <div class="col ms-5 mt-5">
                         <label for="Date">Date : &nbsp;</label>
-                        <input type="text"disabled value="SPE">
+                        <input type="text"disabled value="${re.dateBooking}">
+                    </div>
+                    
+
+
+                </div>
+                    <div class="row  d-flex ">
+
+                    <div class="col ms-5 mt-5">
+                        <label for="Date">Status:   </label>
+                        <input type="text"disabled value="${re.status}">
                     </div>
                     
 
@@ -81,8 +91,8 @@
                 <div class="row  d-flex ">
 
                     <div class="col ms-5 mt-5">
-                        <label for="Doctor">Doctor:</label>
-                        <input type="text"disabled value="SPE">
+                        <label for="Doctor">Phone:</label>
+                        <input type="text"disabled value="${re.phoneContact}">
                     </div>
                     
 
@@ -92,7 +102,17 @@
 
                     <div class="col ms-5 mt-5">
                         <label for="Time">Time :&nbsp;</label>
-                        <input type="text"disabled value="SPE">
+                        <input type="text"disabled value="${re.timeSlot.slotTime}">
+                    </div>
+                    
+
+
+                </div>
+                     <div class="row  d-flex ">
+
+                    <div class="col ms-5 mt-5">
+                        <label for="Time">Special:</label>
+                        <input type="text"disabled value="${re.timeSlot.slotTime}">
                     </div>
                     
 
@@ -108,7 +128,7 @@
 
                     <div class="col ms-5 mt-5">
                         <label for="Isues">Isues : &nbsp;</label>
-                        <textarea name="Isues" id="" cols="100" rows="5" disabled=""></textarea>
+                        <textarea  name="Isues" id="" cols="100"  rows="5"  disabled="">${re.issue}</textarea>
                     </div>
                     
 

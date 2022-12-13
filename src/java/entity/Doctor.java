@@ -16,6 +16,13 @@ public class Doctor {
     private Specialist specialist;
     private DoctorProfile doctorProfile;
 
+    public Doctor(int id, Account account, Specialist specialist, DoctorProfile doctorProfile) {
+        this.id = id;
+        this.account = account;
+        this.specialist = specialist;
+        this.doctorProfile = doctorProfile;
+    }
+
     public Doctor() {
     }
 
@@ -27,6 +34,10 @@ public class Doctor {
         this.id = id;
         this.account = account;
         this.specialist = specialist;
+    }
+
+    public Doctor(DoctorProfile doctorProfile) {
+        this.doctorProfile = doctorProfile;
     }
 
     public DoctorProfile getDoctorProfile() {

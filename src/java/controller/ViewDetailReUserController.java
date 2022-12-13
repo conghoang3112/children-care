@@ -5,6 +5,9 @@
  */
 package controller;
 
+import DAO.DuanReservationDAO;
+import DAO.DuanReservationDAOIplm;
+import entity.Reservationduan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,11 +36,10 @@ public class ViewDetailReUserController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       
-        String id= request.getParameter("id");
-        System.out.println(id);
-
-        int reserId=Integer.parseInt(id);
-        request.setAttribute("reserId", reserId);
+         DuanReservationDAO dao = new DuanReservationDAOIplm();
+    Reservationduan re = dao.getReservationDetail(12, 1);
+        request.setAttribute("re", re);
+        
         request.getRequestDispatcher("ViewUserReservationDetail.jsp").forward(request, response);
         
 

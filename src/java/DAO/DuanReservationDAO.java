@@ -6,11 +6,12 @@
 package DAO;
 
 import entity.Reservation;
+import entity.Reservationduan;
 
 /**
  *
  * @author duan1
  */
 public interface DuanReservationDAO {
-    Reservation getReservationDetail(int uid,int rid);
+    Reservationduan getReservationDetail(int uid,int rid);
 }
