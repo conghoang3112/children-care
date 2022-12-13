@@ -19,8 +19,13 @@ public class User {
     private String address;
     private String avatar;
     private boolean sex;
+    private Patient patient;
 
     public User() {
+    }
+
+    public User(int id) {
+        this.id = id;
     }
 
     public User(int id, String firstName, String lastName, String phone, String address, String avatar, boolean sex) {
@@ -42,6 +47,14 @@ public class User {
         this.address = address;
         this.avatar = avatar;
         this.sex = sex;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public int getId() {

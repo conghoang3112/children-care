@@ -22,6 +22,11 @@ public class DoctorProfile {
     private boolean sex;
     private String addressHospital;
 
+    public DoctorProfile(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public DoctorProfile() {
     }
 
@@ -98,6 +103,11 @@ public class DoctorProfile {
 
     public void setAddressHospital(String addressHospital) {
         this.addressHospital = addressHospital;
+    }
+
+    @Override
+    public String toString() {
+        return "DoctorProfile{" + "id=" + id + ", doctor=" + doctor + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", avatar=" + avatar + ", sex=" + sex + ", addressHospital=" + addressHospital + '}';
     }
 
 }

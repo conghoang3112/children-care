@@ -20,6 +20,7 @@ public class Patient {
     private String avatar;
     private boolean sex;
     private String note;
+    private int age;
 
     public Patient() {
     }
@@ -32,6 +33,13 @@ public class Patient {
         this.avatar = avatar;
         this.sex = sex;
         this.note = note;
+    }
+
+    public Patient(int patientId, String patientName, Date dob, boolean sex) {
+        this.id = patientId;
+        this.name = patientName;
+        this.dob = dob;
+        this.sex = sex;
     }
 
     public int getId() {
@@ -90,4 +98,11 @@ public class Patient {
         this.note = note;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }

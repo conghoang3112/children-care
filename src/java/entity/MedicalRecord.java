@@ -12,7 +12,7 @@ package entity;
 public class MedicalRecord {
 
     private int id;
-    private Reservation reservation;
+    private int reservation;
     private String dieaseName;
     private String prescription;
     private String recordNote;
@@ -20,7 +20,7 @@ public class MedicalRecord {
     public MedicalRecord() {
     }
 
-    public MedicalRecord(int id, Reservation reservation, String dieaseName, String prescription, String recordNote) {
+    public MedicalRecord(int id, int reservation, String dieaseName, String prescription, String recordNote) {
         this.id = id;
         this.reservation = reservation;
         this.dieaseName = dieaseName;
@@ -36,11 +36,11 @@ public class MedicalRecord {
         this.id = id;
     }
 
-    public Reservation getReservation() {
+    public int getReservation() {
         return reservation;
     }
 
-    public void setReservation(Reservation reservation) {
+    public void setReservation(int reservation) {
         this.reservation = reservation;
     }
 
@@ -67,5 +67,7 @@ public class MedicalRecord {
     public void setRecordNote(String recordNote) {
         this.recordNote = recordNote;
     }
+
+   
 
 }

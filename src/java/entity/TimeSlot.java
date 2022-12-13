@@ -17,6 +17,10 @@ public class TimeSlot {
     public TimeSlot() {
     }
 
+    public TimeSlot(int id) {
+        this.id = id;
+    }
+
     public TimeSlot(int id, String slotTime) {
         this.id = id;
         this.slotTime = slotTime;
@@ -36,6 +40,11 @@ public class TimeSlot {
 
     public void setSlotTime(String slotTime) {
         this.slotTime = slotTime;
+    }
+
+    @Override
+    public String toString() {
+        return "TimeSlot{" + "id=" + id + ", slotTime=" + slotTime + '}';
     }
 
 }

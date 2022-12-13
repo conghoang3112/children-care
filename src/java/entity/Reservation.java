@@ -14,26 +14,36 @@ import java.util.Date;
 public class Reservation {
 
     private int id;
-    private TimeSlot timeSlot;
-    private Doctor doctor;
+    private int time_slot_id;
+    private String slot_time;
+    private int doctor_id;
+    private String dfirst_name;
+    private String dlast_name;
     private Date dateBooking;
     private String phoneContact;
     private String status;
     private String issue;
-    private User user;
+    private int user_id;
+    private String ufirst_name;
+    private String ulast_name;
 
     public Reservation() {
     }
 
-    public Reservation(int id, TimeSlot timeSlot, Doctor doctor, Date dateBooking, String phoneContact, String status, String issue, User user) {
+    public Reservation(int id, int time_slot_id, String slot_time, int doctor_id, String dfirst_name, String dlast_name, Date dateBooking, String phoneContact, String status, String issue, int user_id, String ufirst_name, String ulast_name) {
         this.id = id;
-        this.timeSlot = timeSlot;
-        this.doctor = doctor;
+        this.time_slot_id = time_slot_id;
+        this.slot_time = slot_time;
+        this.doctor_id = doctor_id;
+        this.dfirst_name = dfirst_name;
+        this.dlast_name = dlast_name;
         this.dateBooking = dateBooking;
         this.phoneContact = phoneContact;
         this.status = status;
         this.issue = issue;
-        this.user = user;
+        this.user_id = user_id;
+        this.ufirst_name = ufirst_name;
+        this.ulast_name = ulast_name;
     }
 
     public int getId() {
@@ -44,20 +54,44 @@ public class Reservation {
         this.id = id;
     }
 
-    public TimeSlot getTimeSlot() {
-        return timeSlot;
+    public int getTime_slot_id() {
+        return time_slot_id;
     }
 
-    public void setTimeSlot(TimeSlot timeSlot) {
-        this.timeSlot = timeSlot;
+    public void setTime_slot_id(int time_slot_id) {
+        this.time_slot_id = time_slot_id;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public String getSlot_time() {
+        return slot_time;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public void setSlot_time(String slot_time) {
+        this.slot_time = slot_time;
+    }
+
+    public int getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(int doctor_id) {
+        this.doctor_id = doctor_id;
+    }
+
+    public String getDfirst_name() {
+        return dfirst_name;
+    }
+
+    public void setDfirst_name(String dfirst_name) {
+        this.dfirst_name = dfirst_name;
+    }
+
+    public String getDlast_name() {
+        return dlast_name;
+    }
+
+    public void setDlast_name(String dlast_name) {
+        this.dlast_name = dlast_name;
     }
 
     public Date getDateBooking() {
@@ -92,12 +126,36 @@ public class Reservation {
         this.issue = issue;
     }
 
-    public User getUser() {
-        return user;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
+    public String getUfirst_name() {
+        return ufirst_name;
+    }
+
+    public void setUfirst_name(String ufirst_name) {
+        this.ufirst_name = ufirst_name;
+    }
+
+    public String getUlast_name() {
+        return ulast_name;
+    }
+
+    public void setUlast_name(String ulast_name) {
+        this.ulast_name = ulast_name;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" + "id=" + id + ", time_slot_id=" + time_slot_id + ", slot_time=" + slot_time + ", doctor_id=" + doctor_id + ", dfirst_name=" + dfirst_name + ", dlast_name=" + dlast_name + ", dateBooking=" + dateBooking + ", phoneContact=" + phoneContact + ", status=" + status + ", issue=" + issue + ", user_id=" + user_id + ", ufirst_name=" + ufirst_name + ", ulast_name=" + ulast_name + '}';
+    }
+    
+    
+
+   
 }
