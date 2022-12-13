@@ -51,6 +51,7 @@
         </nav>
     </div>
     <div class="row ">
+        <input  value="${uid}" type="hidden" name="uid" id="uid"/>
         <div class="container">
            <div class="row d-flex justify-content-evenly pt-5 p-5">
             

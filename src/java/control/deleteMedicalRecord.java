@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package control;
 
+import DAO.MedicalRecordDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author duan1
+ * @author admin
  */
-@WebServlet(name = "ViewDetailUserController", urlPatterns = {"/ViewDetail"})
-public class ViewDetailUserController extends HttpServlet {
+@WebServlet(name = "deleteMedicalRecord", urlPatterns = {"/delete-medical-record"})
+public class deleteMedicalRecord extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,15 +33,13 @@ public class ViewDetailUserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      
-        String id= request.getParameter("id");
-        System.out.println(id);
-
-        int reserId=Integer.parseInt(id);
-        request.setAttribute("reserId", reserId);
-        request.getRequestDispatcher("ViewUserDeTail.jsp").forward(request, response);
-        
-
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+           int id = Integer.parseInt(request.getParameter("recordId"));
+            MedicalRecordDAO medicalRecordDAO = new MedicalRecordDAO();
+            medicalRecordDAO.delete(id);
+            response.sendRedirect("mediaRecord_list");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
