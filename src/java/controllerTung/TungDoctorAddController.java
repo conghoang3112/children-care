@@ -9,14 +9,20 @@ import entity.DoctorProfile;
 import entity.Specialist;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "DoctorAdd", urlPatterns = {"/doctors/add"})
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+		maxFileSize = 1024 * 1024 * 50, // 50MB
+		maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class TungDoctorAddController extends HttpServlet {
 	private TungDoctorDao tungDoctorDao = new TungDoctorDaoImpl();
 	private TungSpecialistDao tungSpecialistDao = new TungSpecialistDaoImpl();
@@ -39,11 +45,17 @@ public class TungDoctorAddController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			Part part = request.getParts().stream().findFirst().get();
+			String fileName = extractFileName(part);
+			// refines the fileName in case it is an absolute path
+			fileName = new File(fileName).getName();
+			part.write(getFolderUpload().getAbsolutePath() + File.separator + fileName);
+
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 			String email = request.getParameter("email");
 			String phone = request.getParameter("number");
-			int specialist = Integer.parseInt(request.getParameter("specialist"));
+			int specialistId = Integer.parseInt(request.getParameter("specialist"));
 			int gender = Integer.parseInt(request.getParameter("gender"));
 			String comments = request.getParameter("comments");
 
@@ -52,14 +64,47 @@ public class TungDoctorAddController extends HttpServlet {
 			doctorProfile.setLastName(lastName);
 			doctorProfile.setEmail(email);
 			doctorProfile.setPhone(phone);
-			doctorProfile.setAvatar("");
+			doctorProfile.setAvatar(fileName);
 			doctorProfile.setSex(gender == 0 ? false : true);
 			doctorProfile.setAddressHospital(comments);
 
-			
+			Doctor doctor = new Doctor();
+			Specialist specialist = new Specialist();
+			specialist.setId(specialistId);
+			doctor.setSpecialist(specialist);
+			doctor.setDoctorProfile(doctorProfile);
+
+			boolean result = tungDoctorDao.add(doctor, doctorProfile);
+			if (!result) {
+				System.out.println("Add doctor fail");
+			}
+			response.sendRedirect("/doctors");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
+	}
+
+	public static File getFolderUpload() {
+		File folderUpload = new File("D:\\TungNX\\Private\\children-care\\web\\manager-role\\assets\\images\\doctors");
+		return folderUpload;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(getFolderUpload().getAbsolutePath());
+	}
+
+	/**
+	 * Extracts file name from HTTP header content-disposition
+	 */
+	private String extractFileName(Part part) {
+		String contentDisp = part.getHeader("content-disposition");
+		String[] items = contentDisp.split(";");
+		for (String s : items) {
+			if (s.trim().startsWith("filename")) {
+				return s.substring(s.indexOf("=") + 2, s.length() - 1);
+			}
+		}
+		return "";
 	}
 }

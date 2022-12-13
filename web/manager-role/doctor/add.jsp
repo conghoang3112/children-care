@@ -61,7 +61,7 @@
                     <div class="col-lg-8 mt-4">
                         <div class="card border-0 p-4 rounded shadow">
 
-                            <form class="mt-4" method="POST" action="${pageContext.request.contextPath}/doctors/add">
+                            <form class="mt-4" method="POST" action="${pageContext.request.contextPath}/doctors/add" enctype="multipart/form-data">
                                 <div class="row align-items-center">
                                     <div class="col-lg-2 col-md-4">
                                         <img id="addDoctorImage" src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
@@ -72,7 +72,7 @@
                                     </div><!--end col-->
                                     <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
 <%--                                        <a href="#" class="btn btn-primary">Upload</a>--%>
-                                        <input type="file" name="image" onchange="viewUploadFile(event);" class="btn btn-primary" style="color:transparent; width:109px;">
+                                        <input type="file" name="image" onchange="viewUploadFile(event);" class="btn btn-primary" style="width: 44%">
                                         <a href="#" class="btn btn-soft-primary ms-2" onclick="removePreviewImage()">Remove</a>
                                     </div><!--end col-->
                                 </div><!--end row-->

@@ -4,10 +4,7 @@ import context.DBContext;
 import entity.*;
 import utils.TungUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -114,5 +111,65 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 			}
 		}
 		return doctorList;
+	}
+
+	@Override
+	public boolean add(Doctor doctor, DoctorProfile doctorProfile) {
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = getConnection();
+			connection.setAutoCommit(false);
+
+			// Start stransaction
+			StringBuilder sql = new StringBuilder();
+			sql.append("INSERT INTO DoctorProfile(first_name, last_name, dob, avatar, sex, address_hospital, experience, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			ps = connection.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, doctorProfile.getFirstName());
+			ps.setString(2, doctorProfile.getLastName());
+			ps.setDate(3, null);
+			ps.setString(4, doctorProfile.getAvatar());
+			ps.setBoolean(5, doctorProfile.isSex());
+			ps.setString(6, doctorProfile.getAddressHospital());
+			ps.setInt(7, doctorProfile.getExperience());
+			ps.setString(8, doctorProfile.getPhone());
+			ps.setString(9, doctorProfile.getEmail());
+
+			ps.executeUpdate();
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				int doctorProfileId = rs.getInt(1);
+				sql = new StringBuilder();
+				sql.append("INSERT INTO Doctor(acc_id, specialist_id, profile_id, room_id) VALUES (?, ?, ?, ?)");
+				ps = connection.prepareStatement(sql.toString());
+				ps.setInt(1, 8);
+				ps.setInt(2, doctor.getSpecialist().getId());
+				ps.setInt(3, doctorProfileId);
+				ps.setInt(4, 1);
+				if (ps.executeUpdate() > 0) {
+					connection.commit();
+					return true;
+				};
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException ex) {
+				throw new RuntimeException(ex);
+			}
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return false;
 	}
 }
