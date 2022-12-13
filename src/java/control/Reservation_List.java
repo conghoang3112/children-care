@@ -3,26 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package control;
 
-import DAO.AccountDAO;
-import entity.Account;
+import DAO.ReservationDAO;
+import entity.Reservation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author congh
+ * @author Admin
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/loginController"})
-public class LoginController extends HttpServlet {
+public class Reservation_List extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +33,8 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        request.setCharacterEncoding("utf-8");
+        request.getRequestDispatcher("ReservationList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +50,6 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-response.sendRedirect("index.html");
     }
 
     /**
@@ -67,19 +64,10 @@ response.sendRedirect("index.html");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String username = request.getParameter("username");
-        String pass = request.getParameter("password");
-
-        AccountDAO dao = new AccountDAO();
-        Account a = dao.checkLogin(username, pass);
-        if (a != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("acc", a);
-            request.getRequestDispatcher("HomePage.jsp").forward(request, response);
-        } else {
-            request.setAttribute("mess", "user or pass wrong");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+        ReservationDAO rdao = new ReservationDAO();
+        List<Reservation> reservations = rdao.getAll();
+        request.setAttribute("reservations", reservations);
+        request.getRequestDispatcher("ReservationList.jsp").forward(request, response);
     }
 
     /**
