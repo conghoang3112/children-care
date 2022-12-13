@@ -22,9 +22,9 @@
           <a href="javascript:void(0)"><i class="uil uil-user me-2 d-inline-block"></i>Doctors</a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="doctors.html">Doctors</a></li>
-              <li><a href="add-doctor.html">Add Doctor</a></li>
-              <li><a href="dr-profile.html">Profile</a></li>
+              <li><a href="${pageContext.request.contextPath}/doctors">Doctors</a></li>
+              <li><a href="${pageContext.request.contextPath}/doctors/add">Add Doctor</a></li>
+              <li><a href="${pageContext.request.contextPath}/doctorProfile?doctorId=1&doctorProfileId=1">Profile</a></li>
             </ul>
           </div>
         </li>
@@ -33,9 +33,9 @@
           <a href="javascript:void(0)"><i class="uil uil-wheelchair me-2 d-inline-block"></i>Patients</a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="patients.html">All Patients</a></li>
-              <li><a href="add-patient.html">Add Patients</a></li>
-              <li><a href="patient-profile.html">Profile</a></li>
+              <li><a href="${pageContext.request.contextPath}/patients">All Patients</a></li>
+              <li><a href="${pageContext.request.contextPath}/patients/add">Add Patients</a></li>
+              <li><a href="${pageContext.request.contextPath}/patientProfile?patientId=5">Profile</a></li>
             </ul>
           </div>
         </li>

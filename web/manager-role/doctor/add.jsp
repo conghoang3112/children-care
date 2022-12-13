@@ -64,7 +64,7 @@
                             <form class="mt-4" method="POST" action="${pageContext.request.contextPath}/doctors/add" enctype="multipart/form-data">
                                 <div class="row align-items-center">
                                     <div class="col-lg-2 col-md-4">
-                                        <img id="addDoctorImage" src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
+                                        <img id="doctorImage" src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
                                     </div><!--end col-->
                                     <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
                                         <h5 class="">Upload your picture</h5>

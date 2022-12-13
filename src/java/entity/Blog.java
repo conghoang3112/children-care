@@ -17,6 +17,10 @@ public class Blog {
     private Manager manager;
     private String content;
     private Date time;
+    private int timeRead;
+    private int heart;
+    private int comment;
+    private String title;
 
     public Blog() {
     }
@@ -26,6 +30,16 @@ public class Blog {
         this.manager = manager;
         this.content = content;
         this.time = time;
+    }
+
+    public Blog(int blogId, int managerId, String content, Date time, int timeRead, int heart, int comment, String title) {
+        this.id = blogId;
+        this.content = content;
+        this.time = time;
+        this.timeRead = timeRead;
+        this.heart = heart;
+        this.comment = comment;
+        this.title = title;
     }
 
     public int getId() {
@@ -60,4 +74,35 @@ public class Blog {
         this.time = time;
     }
 
+    public int getTimeRead() {
+        return timeRead;
+    }
+
+    public void setTimeRead(int timeRead) {
+        this.timeRead = timeRead;
+    }
+
+    public int getHeart() {
+        return heart;
+    }
+
+    public void setHeart(int heart) {
+        this.heart = heart;
+    }
+
+    public int getComment() {
+        return comment;
+    }
+
+    public void setComment(int comment) {
+        this.comment = comment;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

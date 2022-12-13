@@ -16,4 +16,6 @@ public interface TungDoctorDao {
 	Doctor findById(int doctorId, int doctorProfileId);
 
 	List<Doctor> findAnotherDoctor(int doctorId, int doctorProfileId);
+
+	boolean update(DoctorProfile doctorProfile);
 }

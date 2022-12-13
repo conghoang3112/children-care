@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,21 +15,21 @@
     <meta name="website" content="../../../index.html" />
     <meta name="Version" content="v1.2.0" />
     <!-- favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico.png">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/manager-role/assets/images/favicon.ico.png">
     <!-- Bootstrap -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- simplebar -->
-    <link href="../assets/css/simplebar.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/simplebar.css" rel="stylesheet" type="text/css" />
     <!-- Select2 -->
-    <link href="../assets/css/select2.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/select2.min.css" rel="stylesheet" />
     <!-- Date picker -->
-    <link rel="stylesheet" href="../assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/manager-role/assets/css/flatpickr.min.css">
     <!-- Icons -->
-    <link href="../assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/remixicon.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/remixicon.css" rel="stylesheet" type="text/css" />
     <link href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"  rel="stylesheet">
     <!-- Css -->
-    <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
 
 </head>
 
@@ -58,7 +59,7 @@
 
                     <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                         <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html">Doctris</a></li>
+                            <li class="breadcrumb-item"><a href="index.html">ChildrenCare</a></li>
                             <li class="breadcrumb-item"><a href="patients.html">Patients</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Add Patient</li>
                         </ul>
@@ -68,35 +69,36 @@
                 <div class="row">
                     <div class="col-lg-8 mt-4">
                         <div class="card border-0 p-4 rounded shadow">
-                            <div class="row align-items-center">
-                                <div class="col-lg-2 col-md-4">
-                                    <img src="../assets/images/client/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
-                                </div><!--end col-->
+                            <form class="mt-4" action="${pageContext.request.contextPath}/patients/add" method="POST" enctype="multipart/form-data">
 
-                                <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
-                                    <h5 class="">Upload your picture</h5>
-                                    <p class="text-muted mb-0">For best results, use an image at least 600px by 600px in either .jpg or .png format</p>
-                                </div><!--end col-->
+                                <div class="row align-items-center">
+                                    <div class="col-lg-2 col-md-4">
+                                        <img id="doctorImage" src="${pageContext.request.contextPath}/manager-role/assets/images/client/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
+                                    </div><!--end col-->
 
-                                <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
-                                    <a href="#" class="btn btn-primary">Upload</a>
-                                    <a href="#" class="btn btn-soft-primary ms-2">Remove</a>
-                                </div><!--end col-->
-                            </div><!--end row-->
+                                    <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
+                                        <h5 class="">Upload your picture</h5>
+                                        <p class="text-muted mb-0">For best results, use an image at least 600px by 600px in either .jpg or .png format</p>
+                                    </div><!--end col-->
 
-                            <form class="mt-4">
+                                    <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
+                                        <input type="file" name="image" onchange="viewUploadFile(event);" class="btn btn-primary" style="width: 44%">
+                                        <a href="#" class="btn btn-soft-primary ms-2" onclick="removePreviewImage()">Remove</a>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">First Name</label>
-                                            <input name="name" id="name" type="text" class="form-control" placeholder="First Name :">
+                                            <input name="firstName" id="name" type="text" class="form-control" placeholder="First Name :">
                                         </div>
                                     </div><!--end col-->
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Last Name</label>
-                                            <input name="name" id="name2" type="text" class="form-control" placeholder="Last Name :">
+                                            <input name="lastName" id="name2" type="text" class="form-control" placeholder="Last Name :">
                                         </div>
                                     </div><!--end col-->
 
@@ -116,26 +118,11 @@
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label"> Date : </label>
-                                            <input name="date" type="text" class="flatpickr flatpickr-input form-control" id="checkin-date">
+                                            <label class="form-label"> DOB : </label>
+                                            <input name="dob" type="text" class="flatpickr flatpickr-input form-control" id="checkin-date">
                                         </div>
                                     </div><!--end col-->
 
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Departments</label>
-                                            <select class="form-control department-name select2input">
-                                                <option value="EY">Eye Care</option>
-                                                <option value="GY">Gynecologist</option>
-                                                <option value="PS">Psychotherapist</option>
-                                                <option value="OR">Orthopedic</option>
-                                                <option value="DE">Dentist</option>
-                                                <option value="GA">Gastrologist</option>
-                                                <option value="UR">Urologist</option>
-                                                <option value="NE">Neurologist</option>
-                                            </select>
-                                        </div>
-                                    </div><!--end col-->
                                 </div><!--end row-->
 
                                 <button type="submit" class="btn btn-primary">Add Patient</button>
@@ -150,58 +137,20 @@
                             </div>
 
                             <ul class="list-unstyled mb-0 p-4" data-simplebar style="height: 664px;">
-                                <li class="d-md-flex align-items-center text-center text-md-start">
-                                    <img src="../assets/images/doctors/01.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
+                                <c:forEach items="${doctorList}" var="doctor">
+                                    <li class="d-md-flex align-items-center text-center text-md-start">
+                                        <img src="${pageContext.request.contextPath}/manager-role/assets/images/doctors/${doctor.doctorProfile.avatar}" class="avatar avatar-medium rounded-md shadow" alt="">
 
-                                    <div class="ms-md-3 mt-4 mt-sm-0">
-                                        <a href="#" class="text-dark h6">Dr. Calvin Carlo</a>
-                                        <p class="text-muted my-1">Cardiologist</p>
-                                        <p class="text-muted mb-0">3 Years Experienced</p>
-                                    </div>
-                                </li>
-
-                                <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                                    <img src="../assets/images/doctors/02.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                                    <div class="ms-md-3 mt-4 mt-sm-0">
-                                        <a href="#" class="text-dark h6">Dr. Alex Smith</a>
-                                        <p class="text-muted my-1">Dentist</p>
-                                        <p class="text-muted mb-0">1 Years Experienced</p>
-                                    </div>
-                                </li>
-
-                                <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                                    <img src="../assets/images/doctors/03.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                                    <div class="ms-md-3 mt-4 mt-sm-0">
-                                        <a href="#" class="text-dark h6">Dr. Cristina Luly</a>
-                                        <p class="text-muted my-1">Orthopedic</p>
-                                        <p class="text-muted mb-0">5 Years Experienced</p>
-                                    </div>
-                                </li>
-
-                                <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                                    <img src="../assets/images/doctors/04.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                                    <div class="ms-md-3 mt-4 mt-sm-0">
-                                        <a href="#" class="text-dark h6">Dr. Dwayen Maria</a>
-                                        <p class="text-muted my-1">Gastrologist</p>
-                                        <p class="text-muted mb-0">2 Years Experienced</p>
-                                    </div>
-                                </li>
-
-                                <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                                    <img src="../assets/images/doctors/05.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                                    <div class="ms-md-3 mt-4 mt-sm-0">
-                                        <a href="#" class="text-dark h6">Dr. Jenelia Focia</a>
-                                        <p class="text-muted my-1">Psychotherapist</p>
-                                        <p class="text-muted mb-0">3 Years Experienced</p>
-                                    </div>
-                                </li>
+                                        <div class="ms-md-3 mt-4 mt-sm-0">
+                                            <a href="#" class="text-dark h6">${doctor.doctorProfile.firstName.concat(" ").concat(doctor.doctorProfile.lastName)}</a>
+                                            <p class="text-muted my-1">${doctor.specialist.name}</p>
+                                            <p class="text-muted mb-0">${doctor.doctorProfile.experience} Years Experienced</p>
+                                        </div>
+                                    </li>
+                                </c:forEach>
 
                                 <li class="mt-4">
-                                    <a href="doctors.html" class="btn btn-primary">All Doctors</a>
+                                    <a href="${pageContext.request.contextPath}/doctors" class="btn btn-primary">All Doctors</a>
                                 </li>
                             </ul>
                         </div>
@@ -226,7 +175,7 @@
             </div>
             <div class="modal-body p-3 pt-4">
                 <div class="d-flex align-items-center">
-                    <img src="../assets/images/client/01.jpg" class="avatar avatar-small rounded-pill" alt="">
+                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/01.jpg" class="avatar avatar-small rounded-pill" alt="">
                     <h5 class="mb-0 ms-3">Howard Tanner</h5>
                 </div>
                 <ul class="list-unstyled mb-0 d-md-flex justify-content-between mt-4">
@@ -321,20 +270,21 @@
 <!-- Modal end -->
 
 <!-- javascript -->
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/bootstrap.bundle.min.js"></script>
 <!-- simplebar -->
-<script src="../assets/js/simplebar.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/simplebar.min.js"></script>
 <!-- Select2 -->
-<script src="../assets/js/select2.min.js"></script>
-<script src="../assets/js/select2.init.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/select2.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/select2.init.js"></script>
 <!-- Datepicker -->
-<script src="../assets/js/flatpickr.min.js"></script>
-<script src="../assets/js/flatpickr.init.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/flatpickr.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/flatpickr.init.js"></script>
 <!-- Icons -->
-<script src="../assets/js/feather.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/feather.min.js"></script>
 <!-- Main Js -->
-<script src="../assets/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/upload_file_util.js"></script>
 
 </body>
 

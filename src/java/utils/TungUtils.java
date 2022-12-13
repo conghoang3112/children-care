@@ -1,5 +1,7 @@
 package utils;
 
+import javax.servlet.http.Part;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -27,5 +29,29 @@ public class TungUtils {
 		} catch (Exception e) {
 			return 0;
 		}
+	}
+
+	/**
+	 * Extracts file name from HTTP header content-disposition
+	 */
+	public static String extractFileName(Part part) {
+		String contentDisp = part.getHeader("content-disposition");
+		String[] items = contentDisp.split(";");
+		for (String s : items) {
+			if (s.trim().startsWith("filename")) {
+				return s.substring(s.indexOf("=") + 2, s.length() - 1);
+			}
+		}
+		return "";
+	}
+
+	public static File getFolderUpload() {
+		File folderUpload = new File(TungConstant.PATH_IMAGE_DOCTOR);
+		return folderUpload;
+	}
+
+	public static File getFolderUploadPatient() {
+		File folderUpload = new File(TungConstant.PATH_IMAGE_PATIENT);
+		return folderUpload;
 	}
 }

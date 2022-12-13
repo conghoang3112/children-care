@@ -21,6 +21,9 @@ public class Patient {
     private boolean sex;
     private String note;
     private int age;
+    private Reservation reservation;
+    private String phone;
+    private String email;
 
     public Patient() {
     }
@@ -40,6 +43,30 @@ public class Patient {
         this.name = patientName;
         this.dob = dob;
         this.sex = sex;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 
     public int getId() {

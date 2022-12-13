@@ -14,7 +14,7 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 	public int getTotalDoctor() throws SQLException {
 		Connection connection = null;
 		PreparedStatement ps = null;
-		int totalReservation = 0;
+		int totalDoctor = 0;
 		try {
 			connection = getConnection();
 			StringBuilder sql = new StringBuilder();
@@ -22,7 +22,7 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 			ps = connection.prepareStatement(sql.toString());
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				totalReservation = rs.getInt("total");
+				totalDoctor = rs.getInt("total");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,7 +34,7 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 				ps.close();
 			}
 		}
-		return totalReservation;
+		return totalDoctor;
 	}
 
 	@Override
@@ -182,12 +182,11 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 			connection = getConnection();
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT a.doctor_id, a.acc_id, a.specialist_id, a.profile_id, a.room_id, b.specialist_name, " +
-					"c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital, c.experience, c.phone, c.email" +
-					"ROW_NUMBER() OVER(ORDER BY b.specialist_name DESC) as rownumber " +
+					"c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital, c.experience, c.phone, c.email " +
 					"FROM Doctor a " +
 					"INNER JOIN Specialist b ON b.specialist_id = a.specialist_id " +
 					"INNER JOIN DoctorProfile c ON c.profile_id = a.profile_id " +
-					"WHERE a.doctor_id = ? AND a.profile_id = ?");
+					"WHERE a.doctor_id = ? AND a.profile_id = ? ");
 			sql.append(" GROUP BY a.doctor_id, a.acc_id, a.specialist_id, a.profile_id, a.room_id, b.specialist_name, " +
 					"c.first_name, c.last_name, c.dob, c.avatar, c.sex, c.address_hospital, c.experience, c.phone, c.email ");
 			ps = connection.prepareStatement(sql.toString());
@@ -276,12 +275,15 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 				String addressHospital = rs.getString("address_hospital");
 				int experience = rs.getInt("experience");
 
+				int dbDoctorId = rs.getInt("doctor_id");
+				int dbProfileId = rs.getInt("profile_id");
+
 				Doctor doctor = new Doctor();
-				doctor.setId(doctorId);
+				doctor.setId(dbDoctorId);
 				doctor.setSpecialist(specialist);
 
 				DoctorProfile doctorProfile = new DoctorProfile();
-				doctorProfile.setId(doctorProfileId);
+				doctorProfile.setId(dbProfileId);
 				doctorProfile.setFirstName(firstName);
 				doctorProfile.setLastName(lastName);
 				doctorProfile.setAvatar(avatar);
@@ -309,5 +311,42 @@ public class TungDoctorDaoImpl extends DBContext implements TungDoctorDao {
 			}
 		}
 		return doctorList;
+	}
+
+	@Override
+	public boolean update(DoctorProfile doctorProfile) {
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = getConnection();
+
+			// Start stransaction
+			StringBuilder sql = new StringBuilder();
+			sql.append("UPDATE DoctorProfile SET first_name = ?, last_name = ?, avatar = ?, address_hospital = ?, phone = ?, email = ? WHERE profile_id = ?");
+			ps = connection.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, doctorProfile.getFirstName());
+			ps.setString(2, doctorProfile.getLastName());
+			ps.setString(3, doctorProfile.getAvatar());
+			ps.setString(4, doctorProfile.getAddressHospital());
+			ps.setString(5, doctorProfile.getPhone());
+			ps.setString(6, doctorProfile.getEmail());
+			ps.setInt(7, doctorProfile.getId());
+
+			return ps.executeUpdate() > 0;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return false;
 	}
 }
