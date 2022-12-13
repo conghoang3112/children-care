@@ -21,7 +21,7 @@ public class Reservationduan {
     private String issue;
     private User user;
     
-    
+
 
     public Reservationduan() {
     }

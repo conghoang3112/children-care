@@ -82,7 +82,10 @@
                     <div class="col ms-5 mt-5">
                         <label for="Date">Status:   </label>
                         <input type="text"disabled value="${re.status}">
+<<<<<<< HEAD
                         
+=======
+>>>>>>> main
                     </div>
                     
 
@@ -113,6 +116,7 @@
                      <div class="row  d-flex ">
 
                     <div class="col ms-5 mt-5">
+<<<<<<< HEAD
                         <label for="Link">Room No:</label>
                         <c:if test="${re.status != 'ACCEPTED'}">
                             <input type="text" disabled value="Plase Wait Doctor Accept">
@@ -124,6 +128,10 @@
                              
                         
                        
+=======
+                        <label for="Time">Special:</label>
+                        <input type="text"disabled value="${re.timeSlot.slotTime}">
+>>>>>>> main
                     </div>
                     
 

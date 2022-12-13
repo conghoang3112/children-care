@@ -38,6 +38,7 @@ public class ViewDetailReUserController extends HttpServlet {
         int id=0;
       String uid = request.getParameter("reid");
       
+
           id=Integer.parseInt(uid);
       
          
@@ -46,6 +47,7 @@ public class ViewDetailReUserController extends HttpServlet {
       
          DuanReservationDAO dao = new DuanReservationDAOIplm();
     Reservationduan re = dao.getReservationDetail(12, id);
+
         request.setAttribute("re", re);
         
         request.getRequestDispatcher("ViewUserReservationDetail.jsp").forward(request, response);

@@ -26,7 +26,9 @@ import java.util.logging.Logger;
 public class DuanReservationDAOIplm implements DuanReservationDAO{
     public static void main(String[] args) {
     DuanReservationDAO dao = new DuanReservationDAOIplm();
+
     Reservationduan re = dao.getReservationDetail(12, 8);
+
         System.out.println(re);
     }
     @Override
