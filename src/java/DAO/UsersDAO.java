@@ -6,6 +6,7 @@
 package DAO;
 
 import context.DBContext;
+import entity.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,30 +18,38 @@ import java.util.List;
  * @author congh
  */
 public class UsersDAO {
+
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     
-    public List<Product> getAllProduct() {
-        List<Product> list = new ArrayList<>();
-        String query = "select * from Product";
+    public List<Users> getAllProduct() {
+        List<Users> list = new ArrayList<>();
+        String query = "select * from [User]";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Product(
-                        rs.getString(1),
+                list.add(new Users(
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getInt(4),
+                        rs.getLong(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getBoolean(7),
+                        rs.getInt(8)));
             }
         } catch (Exception e) {
-
+            
         }
         return list;
+    }
+    
+    public static void main(String[] args) {
+        UsersDAO dao = new UsersDAO();
+        List<Users> l = dao.getAllProduct();
+        System.out.println(l);
     }
 }

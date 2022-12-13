@@ -5,8 +5,11 @@
  */
 package controllCong;
 
+import DAO.UsersDAO;
+import entity.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,6 +62,10 @@ public class ListUserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        UsersDAO dao = new UsersDAO();
+        List<Users> listUser = dao.getAllProduct();
+        request.setAttribute("list", listUser);
+        request.getRequestDispatcher("ViewListUserCONG.jsp").forward(request, response);
     }
 
     /**

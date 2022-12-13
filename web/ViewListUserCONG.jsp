@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 <link href="css/ViewUser.css" rel="stylesheet" type="text/css"/>
 <center>
@@ -15,20 +16,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${list}" var="o">
                                 <tr class="candidates-list">
                                     <td class="title">
                                         <div class="thumb">
-                                            <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                                            <img class="img-fluid" src="${o.avata}" alt="">
                                         </div>
                                         <div class="candidate-list-details">
                                             <div class="candidate-list-info">
                                                 <div class="candidate-list-title">
-                                                    <h5 class="mb-0"><a href="#">Brooke Kelly</a></h5>
+                                                    <h5 class="mb-0"><a style="margin-left: 40px">${o.firstName} ${o.lastName}</a></h5>
                                                 </div>
                                                 <div class="candidate-list-option">
                                                     <ul class="list-unstyled">
-                                                        <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                                                        <li><i class="fas fa-map-marker-alt pr-1"></i>Rolling Meadows, IL 60008</li>
+                                                        <li><i class="fas fa-map-marker-alt pr-1"></i> ${o.address}   </li><br/>
+                                                        <li><i class="fa fa-mobile"></i> ${o.phone}</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -40,9 +42,10 @@
                                         </ul>
                                     </td>
                                 </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
