@@ -5,12 +5,8 @@
  */
 package controller;
 
-import DAO.ReservationDAO;
-import DAO.ReservationIplm;
-import entity.Reservation;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewReservation", urlPatterns = {"/ViewReservation"})
-public class ViewReservation extends HttpServlet {
+@WebServlet(name = "ViewRequestReController", urlPatterns = {"/ViewRequestRe"})
+public class ViewRequestReController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -52,9 +48,9 @@ public class ViewReservation extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       int uid=12;
+         int uid=12;
        request.setAttribute("uid", uid);
-        request.getRequestDispatcher("ViewListReservation.jsp").forward(request, response);
+        request.getRequestDispatcher("ListRequsetReservation.jsp").forward(request, response);
     }
 
     /**
