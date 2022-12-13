@@ -50,7 +50,7 @@ public class ViewRequestReController extends HttpServlet {
         processRequest(request, response);
          int uid=12;
        request.setAttribute("uid", uid);
-        request.getRequestDispatcher("ListRequsetReservation.jsp").forward(request, response);
+        request.getRequestDispatcher("MyReservation.jsp").forward(request, response);
     }
 
     /**
