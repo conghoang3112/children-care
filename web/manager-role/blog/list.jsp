@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,39 +62,54 @@
                 </div>
 
                 <div class="row">
+                    <c:forEach items="${blogList}" var="blog">
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 mt-4">
                         <div class="card blog blog-primary border-0 shadow rounded overflow-hidden">
-                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/blog/01.jpg" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/blog/${blog.titleImage}" class="img-fluid" alt="">
                             <div class="card-body p-4">
                                 <ul class="list-unstyled mb-2">
-                                    <li class="list-inline-item text-muted small me-3"><i class="uil uil-calendar-alt text-dark h6 me-1"></i>20th November, 2020</li>
+                                    <li class="list-inline-item text-muted small me-3"><i class="uil uil-calendar-alt text-dark h6 me-1"></i><fmt:formatDate pattern = "yyyy-MM-dd hh:MM:ss" value = "${blog.time}" /></li>
                                     <li class="list-inline-item text-muted small"><i class="uil uil-clock text-dark h6 me-1"></i>5 min read</li>
                                 </ul>
-                                <a href="blog-detail.html" class="text-dark title h5">Easily connect to doctor and make a treatment</a>
+                                <a href="blog-detail.html" class="text-dark title h5">${blog.title}</a>
                                 <div class="post-meta d-flex justify-content-between mt-3">
                                     <ul class="list-unstyled mb-0">
-                                        <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i class="mdi mdi-heart-outline me-1"></i>33</a></li>
-                                        <li class="list-inline-item"><a href="#" class="text-muted comments"><i class="mdi mdi-comment-outline me-1"></i>08</a></li>
+                                        <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i class="mdi mdi-heart-outline me-1"></i>${blog.heart}</a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-muted comments"><i class="mdi mdi-comment-outline me-1"></i>${blog.comment}</a></li>
                                     </ul>
                                     <a href="blog-detail.html" class="link">Read More <i class="mdi mdi-chevron-right align-middle"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div><!--end col-->
+                    </c:forEach>
                 </div><!--end row-->
 
-                <div class="row">
+                <c:if test="${totalPage > 1}">
+                <div class="row text-center">
+                    <!-- PAGINATION START -->
                     <div class="col-12 mt-4">
-                        <ul class="pagination justify-content-end mb-0 list-unstyled">
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Previous">Prev</a></li>
-                            <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Next">Next</a></li>
-                        </ul><!--end pagination-->
+                        <div class="d-md-flex align-items-center text-center justify-content-between">
+                            <ul class="pagination justify-content-center mb-0 mt-3 mt-sm-0">
+                                <c:if test="${currentPage != 1}">
+                                    <li class="page-item">
+                                        <a class="page-link" href="${pageContext.request.contextPath}/blogs?pageNumber=${currentPage - 1}" aria-label="Previous">Previous</a>
+                                    </li>
+                                </c:if>
+                                <c:forEach var="i" begin="1" end="${totalPage}">
+                                    <li class="page-item ${i == currentPage ? ' active' : ''}">
+                                        <a class="page-link" href="${pageContext.request.contextPath}/blogs?pageNumber=${i}" href="#">${i}</a>
+                                    </li>
+                                </c:forEach>
+                                <c:if test="${currentPage < totalPage}">
+                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/blogs?pageNumber=${currentPage + 1}" aria-label="Next">Next</a></li>
+                                </c:if>
+                            </ul>
+                        </div>
                     </div><!--end col-->
-                </div><!--end row-->
-            </div>
+                    <!-- PAGINATION END -->
+                </div>
+                </c:if>
         </div><!--end container-->
 
         <jsp:include page="../common/footer.jsp"></jsp:include>
@@ -193,6 +208,8 @@
 <script src="${pageContext.request.contextPath}/manager-role/assets/js/feather.min.js"></script>
 <!-- Main Js -->
 <script src="${pageContext.request.contextPath}/manager-role/assets/js/app.js"></script>
+
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/upload_file_util.js"></script>
 
 <script>
     const handleChange = () => {

@@ -24,7 +24,8 @@ public class TungBlogDaoImpl extends DBContext implements TungBlogDao {
 			if (start != 0 && end != 0) {
 				sql.append("SELECT * FROM ( ");
 			}
-			sql.append("SELECT * FROM Blog ");
+			sql.append("SELECT blog_id, manager_id, content, time, time_read, heart, comment, title, title_image, ROW_NUMBER() OVER(ORDER BY time DESC) as rownumber " +
+					"FROM Blog ");
 			if (start != 0 && end != 0) {
 				sql.append(") a WHERE a.rownumber BETWEEN ? AND ?");
 			}
@@ -40,12 +41,17 @@ public class TungBlogDaoImpl extends DBContext implements TungBlogDao {
 				int managerId = rs.getInt("manager_id");
 				String content = rs.getString("content");
 				Date time = rs.getDate("time");
-				int timeRead = rs.getInt("time_read");
+				Date timeRead = rs.getDate("time_read");
 				int heart = rs.getInt("heart");
 				int comment = rs.getInt("comment");
 				String title = rs.getString("title");
+				String titleImage = rs.getString("title_image");
 
-				blogList.add(new Blog(blogId, managerId, content, time, timeRead, heart, comment, title));
+				Manager manager = new Manager();
+				manager.setId(managerId);
+				manager.setFirstName("Le Minh");
+				manager.setLastName("Tung");
+				blogList.add(new Blog(blogId, manager, content, time, timeRead, heart, comment, title, titleImage));
 
 			}
 		} catch (Exception e) {
