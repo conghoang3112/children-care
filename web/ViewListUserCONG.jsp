@@ -85,13 +85,6 @@
                             </li>
                         </ul>
                     </div>
-                    <ul class="navbar-nav ml-auto search-box">
-                        <li class="nav-item" style=" ">
-                            <a class="nav-link" style=" float: right"href="loadAcc?accid=${UserID}"><i class="fa fa-user-o text-white"></i></a>
-                            <a class="nav-link" style=" float: right"href="cart.jsp"><i class="fa fa-shopping-cart text-white"></i></a>
-                            <a class="nav-link" style=" float: right" href="search.jsp"><i class="fa fa-search text-white"></i></a>
-                        </li>
-                    </ul>
                 </div>
             </nav>
 
