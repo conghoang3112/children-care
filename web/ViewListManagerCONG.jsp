@@ -78,7 +78,7 @@
                                 <a class="nav-link" href="listManagerController">Manager</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="ProductByType?type=jean">Doctor</a>
+                                <a class="nav-link" href="listDoctorController">Doctor</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="logoutController">Logout</a>

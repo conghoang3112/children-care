@@ -94,63 +94,59 @@
                     </ul>
                 </div>
             </nav>
-
-
         </div>
+    </body>     
 
-        <div class="row mt-5">
 
-            <div class="container mt-3 mb-4" >
-                <div class="col-lg-9 mt-4 mt-lg-0">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-                                <table class="table manage-candidates-top mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>List user</th>
-                                            <!--<th class="text-center">Status</th>-->
-                                            <th class="action text-right">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${list}" var="o">
-                                            <tr class="candidates-list">
-                                                <td class="title">
-                                                    <div class="thumb">
-                                                        <img class="img-fluid" src="${o.avata}" alt="">
-                                                    </div>
-                                                    <div class="candidate-list-details">
-                                                        <div class="candidate-list-info">
-                                                            <div class="candidate-list-title">
-                                                                <h5 class="mb-0"><a style="margin-left: 40px">${o.firstName} ${o.lastName}</a></h5>
-                                                            </div>
-                                                            <div class="candidate-list-option">
-                                                                <ul class="list-unstyled">
-                                                                    <li><i class="fas fa-map-marker-alt pr-1"></i> ${o.address}   </li><br/>
-                                                                    <li><i class="fa fa-mobile"></i> ${o.phone}</li>
-                                                                </ul>
-                                                            </div>
+    <div class="row mt-5">
+        <div class="container mt-3 mb-4">
+            <div class="col-lg-9 mt-4 mt-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+                            <table class="table manage-candidates-top mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>List doctor</th>
+                                        <!--<th class="text-center">Status</th>-->
+                                        <th class="action text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${list}" var="o">
+                                        <tr class="candidates-list">
+                                            <td class="title">
+                                                <div class="thumb">
+                                                    <img class="img-fluid" src="${o.avatar}" alt="">
+                                                </div>
+                                                <div class="candidate-list-details">
+                                                    <div class="candidate-list-info">
+                                                        <div class="candidate-list-title">
+                                                            <h5 class="mb-0"><a style="margin-left: 40px">${o.first_name} ${o.last_name}</a></h5>
+                                                        </div>
+                                                        <div class="candidate-list-option">
+                                                            <ul class="list-unstyled">
+                                                                <li><i class="fa fa-hospital-o"></i> ${o.address_hospital}</li>
+                                                            </ul>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                                        <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
-
+    </div>
 
 </center>
