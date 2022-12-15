@@ -71,13 +71,13 @@
                                     <li class="list-inline-item text-muted small me-3"><i class="uil uil-calendar-alt text-dark h6 me-1"></i><fmt:formatDate pattern = "yyyy-MM-dd hh:MM:ss" value = "${blog.time}" /></li>
                                     <li class="list-inline-item text-muted small"><i class="uil uil-clock text-dark h6 me-1"></i>5 min read</li>
                                 </ul>
-                                <a href="blog-detail.html" class="text-dark title h5">${blog.title}</a>
+                                <a href="${pageContext.request.contextPath}/blogs/detail?blogId=${blog.id}" class="text-dark title h5">${blog.title}</a>
                                 <div class="post-meta d-flex justify-content-between mt-3">
                                     <ul class="list-unstyled mb-0">
                                         <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i class="mdi mdi-heart-outline me-1"></i>${blog.heart}</a></li>
                                         <li class="list-inline-item"><a href="#" class="text-muted comments"><i class="mdi mdi-comment-outline me-1"></i>${blog.comment}</a></li>
                                     </ul>
-                                    <a href="blog-detail.html" class="link">Read More <i class="mdi mdi-chevron-right align-middle"></i></a>
+                                    <a href="${pageContext.request.contextPath}/blogs/detail?blogId=${blog.id}" class="link">Read More <i class="mdi mdi-chevron-right align-middle"></i></a>
                                 </div>
                             </div>
                         </div>

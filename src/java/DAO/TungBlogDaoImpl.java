@@ -97,4 +97,50 @@ public class TungBlogDaoImpl extends DBContext implements TungBlogDao {
 		}
 		return totalBlog;
 	}
+
+	@Override
+	public Blog findById(int blogId) {
+		Blog blog = new Blog();
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT blog_id, manager_id, content, time, time_read, heart, comment, title, title_image FROM Blog WHERE blog_id = ?");
+			ps = connection.prepareStatement(sql.toString());
+			ps.setInt(1, blogId);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				int managerId = rs.getInt("manager_id");
+				String content = rs.getString("content");
+				Date time = rs.getDate("time");
+				Date timeRead = rs.getDate("time_read");
+				int heart = rs.getInt("heart");
+				int comment = rs.getInt("comment");
+				String title = rs.getString("title");
+				String titleImage = rs.getString("title_image");
+
+				Manager manager = new Manager();
+				manager.setId(managerId);
+				manager.setFirstName("Le Minh");
+				manager.setLastName("Tung");
+				blog = new Blog(blogId, manager, content, time, timeRead, heart, comment, title, titleImage);
+
+			}
+		} catch (Exception e) {
+			System.out.println("err: " + e.getMessage());
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return blog;
+	}
 }
