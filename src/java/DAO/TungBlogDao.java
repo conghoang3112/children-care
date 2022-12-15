@@ -9,4 +9,6 @@ public interface TungBlogDao {
 	List<Blog> findAll(int start, int end);
 
 	int getTotalBlog() throws SQLException;
+
+    Blog findById(int blogId);
 }

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,17 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico.png">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/manager-role/assets/images/favicon.ico.png">
     <!-- Bootstrap -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- simplebar -->
-    <link href="../assets/css/simplebar.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/simplebar.css" rel="stylesheet" type="text/css" />
     <!-- Icons -->
-    <link href="../assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/remixicon.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/remixicon.css" rel="stylesheet" type="text/css" />
     <link href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"  rel="stylesheet">
     <!-- Css -->
-    <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="${pageContext.request.contextPath}/manager-role/assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
 
 </head>
 
@@ -46,17 +47,17 @@
             <div class="layout-specing">
                 <div class="d-md-flex justify-content-between">
                     <div>
-                        <h5 class="mb-0">Lockdowns lead to fewer people seeking medical care</h5>
+                        <h5 class="mb-0">${blog.title}</h5>
 
                         <ul class="list-unstyled mt-2 mb-0">
-                            <li class="list-inline-item user text-muted me-2"><i class="mdi mdi-account"></i> Calvin Carlo</li>
-                            <li class="list-inline-item date text-muted"><i class="mdi mdi-calendar-check"></i> 1st January, 2021</li>
+                            <li class="list-inline-item user text-muted me-2"><i class="mdi mdi-account"></i> Lê Minh Tùng</li>
+                            <li class="list-inline-item date text-muted"><i class="mdi mdi-calendar-check"></i><fmt:formatDate pattern = "yyyy-MM-dd hh:MM:ss" value = "${blog.time}" /></li>
                         </ul>
                     </div>
 
                     <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                         <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html">Doctris</a></li>
+                            <li class="breadcrumb-item"><a href="index.html">ChildrenCard</a></li>
                             <li class="breadcrumb-item"><a href="blogs.html">Blogs</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Blog Detail</li>
                         </ul>
@@ -66,15 +67,8 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-7 mt-4">
                         <div class="card rounded shadow border-0 overflow-hidden">
-                            <img src="../assets/images/blog/single.jpg" class="img-fluid" alt="">
-
                             <div class="p-4">
-
-
-                                <p class="text-muted">This is required when, for example, the final text is not yet available. Dummy text is also known as 'fill text'. It is said that song composers of the past used dummy texts as lyrics when writing melodies in order to have a 'ready-made' text to sing with the melody. Dummy texts have been in use by typesetters since the 16th century.</p>
-                                <p class="text-muted">Due to its widespread use as filler text for layouts, non-readability is of great importance: human perception is tuned to recognize certain patterns and repetitions in texts.</p>
-                                <p class="text-muted mb-0">For this reason, dummy text usually consists of a more or less random series of words or syllables.</p>
-
+                                ${blog.content}
                                 <h5 class="card-title mt-4 mb-0">Comments :</h5>
 
                                 <ul class="media-list list-unstyled mb-0">
@@ -82,7 +76,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex align-items-center">
                                                 <a class="pe-3" href="#">
-                                                    <img src="../assets/images/client/01.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+                                                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/01.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
                                                 </a>
                                                 <div class="commentor-detail">
                                                     <h6 class="mb-0"><a href="javascript:void(0)" class="text-dark media-heading">Lorenzo Peterson</a></h6>
@@ -100,7 +94,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex align-items-center">
                                                 <a class="pe-3" href="#">
-                                                    <img src="../assets/images/client/02.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+                                                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/02.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
                                                 </a>
                                                 <div class="commentor-detail">
                                                     <h6 class="mb-0"><a href="javascript:void(0)" class="media-heading text-dark">Tammy Camacho</a></h6>
@@ -118,7 +112,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex align-items-center">
                                                 <a class="pe-3" href="#">
-                                                    <img src="../assets/images/client/03.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+                                                    <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/03.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
                                                 </a>
                                                 <div class="commentor-detail">
                                                     <h6 class="mb-0"><a href="javascript:void(0)" class="media-heading text-dark">Tammy Camacho</a></h6>
@@ -136,7 +130,7 @@
                                                 <div class="d-flex justify-content-between">
                                                     <div class="d-flex align-items-center">
                                                         <a class="pe-3" href="#">
-                                                            <img src="../assets/images/client/01.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+                                                            <img src="${pageContext.request.contextPath}/manager-role/assets/images/client/01.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
                                                         </a>
                                                         <div class="commentor-detail">
                                                             <h6 class="mb-0"><a href="javascript:void(0)" class="text-dark media-heading">Lorenzo Peterson</a></h6>
@@ -213,15 +207,15 @@
                                     <h5 class="widget-title">Recent Post</h5>
                                     <div class="mt-4">
                                         <div class="clearfix post-recent">
-                                            <div class="post-recent-thumb float-start"> <a href="jvascript:void(0)"> <img alt="img" src="../assets/images/blog/07.jpg" class="img-fluid rounded"></a></div>
+                                            <div class="post-recent-thumb float-start"> <a href="jvascript:void(0)"> <img alt="img" src="${pageContext.request.contextPath}/manager-role/assets/images/blog/07.jpg" class="img-fluid rounded"></a></div>
                                             <div class="post-recent-content float-start"><a href="jvascript:void(0)">Consultant Business</a><span class="text-muted mt-2">15th June, 2019</span></div>
                                         </div>
                                         <div class="clearfix post-recent">
-                                            <div class="post-recent-thumb float-start"> <a href="jvascript:void(0)"> <img alt="img" src="../assets/images/blog/08.jpg" class="img-fluid rounded"></a></div>
+                                            <div class="post-recent-thumb float-start"> <a href="jvascript:void(0)"> <img alt="img" src="${pageContext.request.contextPath}/manager-role/assets/images/blog/08.jpg" class="img-fluid rounded"></a></div>
                                             <div class="post-recent-content float-start"><a href="jvascript:void(0)">Look On The Glorious Balance</a> <span class="text-muted mt-2">15th June, 2019</span></div>
                                         </div>
                                         <div class="clearfix post-recent">
-                                            <div class="post-recent-thumb float-start"> <a href="jvascript:void(0)"> <img alt="img" src="../assets/images/blog/01.jpg" class="img-fluid rounded"></a></div>
+                                            <div class="post-recent-thumb float-start"> <a href="jvascript:void(0)"> <img alt="img" src="${pageContext.request.contextPath}/manager-role/assets/images/blog/01.jpg" class="img-fluid rounded"></a></div>
                                             <div class="post-recent-content float-start"><a href="jvascript:void(0)">Research Financial.</a> <span class="text-muted mt-2">15th June, 2019</span></div>
                                         </div>
                                     </div>
@@ -276,13 +270,13 @@
 <!-- page-wrapper -->
 
 <!-- javascript -->
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/bootstrap.bundle.min.js"></script>
 <!-- simplebar -->
-<script src="../assets/js/simplebar.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/simplebar.min.js"></script>
 <!-- Icons -->
-<script src="../assets/js/feather.min.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/feather.min.js"></script>
 <!-- Main Js -->
-<script src="../assets/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/manager-role/assets/js/app.js"></script>
 
 </body>
 
