@@ -78,7 +78,7 @@
 <%--                                    </ul>--%>
                                 </div>
                                 <div class="card-body content text-center">
-                                    <a href="/doctorProfile?doctorId=${doctor.id}&doctorProfileId=${doctor.doctorProfile.id}" class="title text-dark h5 d-block mb-0">
+                                    <a href="${pageContext.request.contextPath}/doctorProfile?doctorId=${doctor.id}&doctorProfileId=${doctor.doctorProfile.id}" class="title text-dark h5 d-block mb-0">
                                             ${doctor.doctorProfile.firstName.concat(" ").concat(doctor.doctorProfile.lastName)}</a>
                                     <small class="text-muted speciality">${doctor.specialist.name}</small>
                                 </div>

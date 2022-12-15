@@ -51,7 +51,12 @@ public class TungDoctorAddController extends HttpServlet {
 			String fileName = TungUtils.extractFileName(part);
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
-			part.write(TungUtils.getFolderUpload().getAbsolutePath() + File.separator + fileName);
+                        String path = TungUtils.getFolderUpload().getAbsolutePath() + File.separator;
+                        try {
+                            part.write(path + fileName);
+                        } catch (Exception e) {
+                            
+                        }
 
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
@@ -80,7 +85,7 @@ public class TungDoctorAddController extends HttpServlet {
 			if (!result) {
 				System.out.println("Add doctor fail");
 			}
-			response.sendRedirect("/doctors");
+			response.sendRedirect(request.getContextPath() + "/doctors");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
