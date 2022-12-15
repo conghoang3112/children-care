@@ -54,7 +54,7 @@ public class TungPatientUpdateController extends HttpServlet {
 			if (!result) {
 				System.out.println("Update patient fail");
 			}
-			response.sendRedirect("/patients");
+			response.sendRedirect(request.getContextPath() + "/patients");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

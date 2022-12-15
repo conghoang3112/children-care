@@ -170,7 +170,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom p-3">
-                <h5 class="modal-title" id="exampleModalLabel">Appointment Detail</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Reservation Detail</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-3 pt-4">
@@ -232,7 +232,7 @@
                         <i class="uil uil-check-circle h1 mb-0"></i>
                     </div>
                     <div class="mt-4">
-                        <h4>Accept Appointment</h4>
+                        <h4>Accept Reservation</h4>
                         <p class="para-desc mx-auto text-muted mb-0">Great doctor if you need your family member to get immediate assistance, emergency treatment.</p>
                         <div class="mt-4">
                             <a href="#" class="btn btn-soft-success">Accept</a>
@@ -255,7 +255,7 @@
                         <i class="uil uil-times-circle h1 mb-0"></i>
                     </div>
                     <div class="mt-4">
-                        <h4>Cancel Appointment</h4>
+                        <h4>Cancel Reservation</h4>
                         <p class="para-desc mx-auto text-muted mb-0">Great doctor if you need your family member to get immediate assistance, emergency treatment.</p>
                         <div class="mt-4">
                             <a href="#" class="btn btn-soft-danger">Cancel</a>
