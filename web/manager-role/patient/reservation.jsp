@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Doctris - Doctor Appointment Booking System</title>
+    <title>ChildrenCare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/manager-role/assets/images/favicon.ico.png">
@@ -51,11 +51,11 @@
             <div class="layout-specing">
                 <div class="row">
                     <div class="col-xl-9 col-lg-6 col-md-4">
-                        <h5 class="mb-0">Appointment</h5>
+                        <h5 class="mb-0">Reservation</h5>
                         <nav aria-label="breadcrumb" class="d-inline-block mt-2">
                             <ul class="breadcrumb breadcrumb-muted bg-transparent rounded mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="index.html">ChildrenCare</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+                                <li class="breadcrumb-item active" aria-current="page">Reservation</li>
                             </ul>
                         </nav>
                     </div><!--end col-->
@@ -76,7 +76,7 @@
 
                                     <div class="col-sm-12 col-md-7 mt-4 mt-sm-0">
                                         <div class="d-grid">
-                                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentform">Appointment</a>
+                                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentform">Reservation</a>
                                         </div>
                                     </div><!--end col-->
                                 </div><!--end row-->
@@ -183,7 +183,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom p-3">
-                <h5 class="modal-title" id="exampleModalLabel">Book an Appointment</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Book an Reservation</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-3 pt-4">
@@ -265,7 +265,7 @@
 
                         <div class="col-lg-12">
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Book An Appointment</button>
+                                <button type="submit" class="btn btn-primary">Book An Reservation</button>
                             </div>
                         </div><!--end col-->
                     </div><!--end row-->
@@ -281,7 +281,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom p-3">
-                <h5 class="modal-title" id="exampleModalLabel1">Appointment Detail</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Reservation Detail</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-3 pt-4">
@@ -343,7 +343,7 @@
                         <i class="uil uil-check-circle h1 mb-0"></i>
                     </div>
                     <div class="mt-4">
-                        <h4>Accept Appointment</h4>
+                        <h4>Accept Reservation</h4>
                         <p class="para-desc mx-auto text-muted mb-0">Great doctor if you need your family member to get immediate assistance, emergency treatment.</p>
                         <div class="mt-4">
                             <a href="#" class="btn btn-soft-success">Accept</a>
@@ -366,7 +366,7 @@
                         <i class="uil uil-times-circle h1 mb-0"></i>
                     </div>
                     <div class="mt-4">
-                        <h4>Cancel Appointment</h4>
+                        <h4>Cancel Reservation</h4>
                         <p class="para-desc mx-auto text-muted mb-0">Great doctor if you need your family member to get immediate assistance, emergency treatment.</p>
                         <div class="mt-4">
                             <a href="#" class="btn btn-soft-danger">Cancel</a>

@@ -22,7 +22,7 @@ public class TungReservationDaoImpl extends DBContext implements TungReservation
         try {
             connection = getConnection();
             StringBuilder sql = new StringBuilder("SELECT * FROM ( ");
-            sql.append("SELECT c.patient_id, c.avatar as patientAvatar, c.name, c.dob, c.sex, h.email, e.specialist_id, e.specialist_name, " +
+            sql.append("SELECT c.patient_id, c.avatar as patientAvatar, c.name, c.dob, c.sex, c.email, e.specialist_id, e.specialist_name, " +
                     "a.reservation_id, a.date_booking, f.slot_id, f.slot_time, d.doctor_id, d.profile_id, g.first_name, g.last_name, g.avatar, " +
                     "ROW_NUMBER() OVER(ORDER BY a.date_booking DESC) as rownumber " +
                     "FROM Reservation a " +
@@ -33,7 +33,7 @@ public class TungReservationDaoImpl extends DBContext implements TungReservation
                     "INNER JOIN TimeSlot f ON f.slot_id = a.time_slot_id " +
                     "INNER JOIN DoctorProfile g ON g.profile_id = d.profile_id " +
                     "INNER JOIN Account h ON h.acc_id = b.acc_id ");
-            sql.append(" GROUP BY c.patient_id, c.avatar, c.name, c.dob, c.sex, h.email, e.specialist_id, e.specialist_name, " +
+            sql.append(" GROUP BY c.patient_id, c.avatar, c.name, c.dob, c.sex, c.email, e.specialist_id, e.specialist_name, " +
                     "a.reservation_id, a.date_booking, f.slot_id, f.slot_time, d.doctor_id, d.profile_id, g.first_name, g.last_name, g.avatar");
             sql.append(") k WHERE k.rownumber BETWEEN ? AND ?");
             ps = connection.prepareStatement(sql.toString());
