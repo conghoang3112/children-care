@@ -9,25 +9,28 @@ import java.util.Date;
 
 /**
  *
- * @author Admin
+ * @author duan1
  */
-public class FeedbackReply {
-
+public class Feedbackduan {
     private int id;
-    private Feedback feedback;
-    private User user;
     private String content;
     private Date time;
+    private Reservation reservation;
+    private User user;
 
-    public FeedbackReply() {
+    public Feedbackduan() {
     }
 
-    public FeedbackReply(int id, Feedback feedback, User user, String content, Date time) {
+    public Feedbackduan(int id, String content, Date time, Reservation reservation, User user) {
         this.id = id;
-        this.feedback = feedback;
-        this.user = user;
         this.content = content;
         this.time = time;
+        this.reservation = reservation;
+        this.user = user;
+    }
+
+    public Feedbackduan(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -36,22 +39,6 @@ public class FeedbackReply {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Feedback getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(Feedback feedback) {
-        this.feedback = feedback;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getContent() {
@@ -70,9 +57,25 @@ public class FeedbackReply {
         this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return "FeedbackReply{" + "id=" + id + ", feedback=" + feedback + ", user=" + user + ", content=" + content + ", time=" + time + '}';
+    public Reservation getReservation() {
+        return reservation;
     }
 
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Feedbackduan{" + "id=" + id + ", content=" + content + ", time=" + time + ", reservation=" + reservation + ", user=" + user + '}';
+    }
+    
 }

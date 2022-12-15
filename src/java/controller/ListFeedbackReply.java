@@ -5,8 +5,14 @@
  */
 package controller;
 
+import DAO.FeebackRepplydaunDAOIpl;
+import DAO.FeebackRepplyduanDAO;
+import DAO.FeedbackDAO;
+import DAO.FeedbackDAOIplm;
+import entity.Feedback;
+import entity.FeedbackReply;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewRequestReController", urlPatterns = {"/ViewRequestRe"})
-public class ViewRequestReController extends HttpServlet {
+@WebServlet(name = "ListFeedbackReply", urlPatterns = {"/ListFeedbackReply"})
+public class ListFeedbackReply extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +38,7 @@ public class ViewRequestReController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,9 +54,21 @@ public class ViewRequestReController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-           int uid=12;
-       request.setAttribute("uid", uid);
-        request.getRequestDispatcher("MyReservation.jsp").forward(request, response);
+//        FeebackRepplyDAO dao = new FeebackRepplyDAOIplm();
+        FeebackRepplyduanDAO dao = new FeebackRepplydaunDAOIpl();
+        FeedbackDAO fdao = new FeedbackDAOIplm();
+        List<Feedback> feeb = fdao.getallFeednoReplyy(12);
+        
+List<FeedbackReply> feed = dao.getafeedllbyid(12);
+      
+request.setAttribute("feed", feed);
+request.setAttribute("feeb", feeb);
+        System.out.println(feeb);
+
+request.getRequestDispatcher("ViewFeedback.jsp").forward(request, response);
+//        List<FeedbackReply> feed= dao.getafeedllbyid(12);
+//        request.setAttribute("feed", feed);
+//        request.getRequestDispatcher("viewFeedback.jsp").forward(request, response);
     }
 
     /**

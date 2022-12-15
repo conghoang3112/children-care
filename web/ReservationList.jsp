@@ -305,7 +305,7 @@
                                     <tr>
                                         <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Reservation ID</th>
                                         <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Slot</th>
-                                        <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Doctor Name</th>
+                                        <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Doctor ID</th>
                                         <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Date Booking</th>
                                         <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Contact</th>
                                         <th style="border-left: 1px solid gray;border-top: 1px solid gray" scope="col">Status</th>
@@ -319,7 +319,7 @@
                                         <tr>
                                            <td scope="row" style="border-left: 1px solid gray">${C.id}</td>
                                             <td style="border-left: 1px solid gray">${C.slot_time}</td>
-                                            <td style="border-left: 1px solid gray">${C.dlast_name} ${C.dfirst_name}</td>
+                                            <td style="border-left: 1px solid gray">${C.doctor_id}</td>
                                             <td style="border-left: 1px solid gray">${C.dateBooking}</td>
                                             <td style="border-left: 1px solid gray">${C.phoneContact}</td>
                                             <td style="border-left: 1px solid gray">${C.status}</td>
@@ -359,7 +359,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <div class="text-sm-start text-center">
-                                    <p class="mb-0 text-muted"><script>document.write(new Date().getFullYear())</script> © Doctris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="../../../index.html" target="_blank" class="text-reset">Shreethemes</a>.</p>
+                                    <p class="mb-0 text-muted"><script>document.write(new Date().getFullYear())</script> ? Doctris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="../../../index.html" target="_blank" class="text-reset">Shreethemes</a>.</p>
                                 </div>
                             </div><!--end col-->
                         </div><!--end row-->

@@ -1,5 +1,7 @@
-<%@page import="entity.Reservationduan"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Reservation</title>
+    <title>ListDoctor</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -36,7 +38,7 @@
         </div>
         <div class="col-3 d-flex justify-content-end ">
             <div class="row d-flex align-content-center">
-                <i>account</i>
+                <i>account:12</i>
             </div>
 
 
@@ -45,7 +47,7 @@
     </div>
 
     <div class="row" style="    height: 25px;background-color: lightskyblue; width: 100%;">
-         <nav class="d-flex justify-content-evenly">
+          <nav class="d-flex justify-content-evenly">
             <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
             <a href="/children-care/ListAllDoctorController">Doctor</a> |
             <a href="/children-care//ViewReservation">All Reservation</a> |
@@ -55,104 +57,15 @@
             
         </nav>
     </div>
-    <div class="row ">
-        <input  value="${uid}" type="hidden" name="uid" id="uid"/>
-        <div class="container">
-           <div class="row d-flex justify-content-evenly pt-5 p-5">
+    <div class="row justify-content-center">
+        <h2>Doctor Profile</h2>
+        <div class="col-8 mt-5">
             
-            <div class="col-5">
-                <div class="row  d-flex ">
-
-                     <div class="col ms-5 mt-5">
-                        <label for="Doctor">Phone:</label>
-                        <input type="text"disabled value="${re.doctor.doctorProfile.firstName} ${re.doctor.doctorProfile.lastName}">
-                    </div> 
-                    
-
-
-                </div>
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Date">Date : &nbsp;</label>
-                        <input type="text"disabled value="${re.dateBooking}">
-                    </div>
-                    
-
-
-                </div>
-                    <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Date">Status:   </label>
-                        <input type="text"disabled value="${re.status}">
-
-                    </div>
-                    
-
-
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Doctor">Phone:</label>
-                        <input type="text"disabled value="${re.phoneContact}">
-                    </div>
-                    
-
-
-                </div>
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-                        <label for="Time">Time :&nbsp;</label>
-                        <input type="text"disabled value="${re.timeSlot.slotTime}">
-                    </div>
-                    
-
-
-                </div>
-                     <div class="row  d-flex ">
-
-                    <div class="col ms-5 mt-5">
-
-                        <label for="Link">Room No:</label>
-                        <c:if test="${re.status =='REQUESTED'}"> <input type="text" name="Link" id="Link"disabled value="aaa"></c:if>                         
-                        
-                             
-                        
-                       
-
-                    </div>
-                    
-
-
-                </div>
-            </div>
-           </div>
-          
-           <div class="row d-flex justify-content-sm-center">
-            
-            <div class="col-8">
-                <div class="row  d-flex ">
-
-                    <div class="col ms-5">
-                        <label for="Isues">Isues : &nbsp;</label>
-                        <textarea  name="Isues" id="" cols="100"  rows="5"  disabled="">${re.issue}</textarea>
-                    </div>
-                    
-
-
-                </div>
-            </div>
-            
-           </div>
-
-            </div>
         </div>
-        </div>
+
+    </div>
+    </div>
+    </div>
     </div>
 
     </div>

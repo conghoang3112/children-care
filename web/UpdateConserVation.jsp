@@ -25,7 +25,7 @@
 
             <div class="col-3 d-flex justify-content-center">
                 <div class="row d-flex align-content-center">
-                    <a class="logo" href="#">
+                    <a class="logo" href="HomeUser.jsp">
                         <img src="" height="24" class="logo-light-mode" alt="Logo">
 
                     </a>

@@ -24,7 +24,7 @@
 
         <div class="col-3 d-flex justify-content-center">
             <div class="row d-flex align-content-center">
-                <a class="logo" href="#">
+                <a class="logo" href="HomeUser.jsp">
                     <img src="" height="24" class="logo-light-mode" alt="Logo">
 
                 </a>
@@ -50,11 +50,14 @@
     </div>
 
     <div class="row" style="    height: 25px;background-color: lightskyblue; width: 100%;">
-        <nav class="d-flex justify-content-evenly">
-            <a href="#">Service</a> |
-            <a href="#">Conservation</a> |
-            <a href="#">Doctor</a> |
-            <a href="#">Special</a>
+          <nav class="d-flex justify-content-evenly">
+            <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
+            <a href="/children-care/ListAllDoctorController">Doctor</a> |
+            <a href="/children-care//ViewReservation">All Reservation</a> |
+            <a href="/children-care/ViewCompletedReservaiotionController">Completed Reservation</a>|
+            <a href="/children-care/ViewRequestRe">Upcoming calendar</a>|
+            <a href="/children-care/ListFeedbackReply">Feedback</a>
+            
         </nav>
     </div>
     <div class="row ">

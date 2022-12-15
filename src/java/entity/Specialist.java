@@ -38,5 +38,10 @@ public class Specialist {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Specialist{" + "id=" + id + ", name=" + name + '}';
+    }
+
 
 }

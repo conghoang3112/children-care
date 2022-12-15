@@ -5,6 +5,11 @@
  */
 package controller;
 
+import DAO.FeedbackDAO;
+import DAO.FeedbackDAOIplm;
+import entity.Feedback;
+import entity.Reservationduan;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewRequestReController", urlPatterns = {"/ViewRequestRe"})
-public class ViewRequestReController extends HttpServlet {
+@WebServlet(name = "AddUserFeebackcontroller", urlPatterns = {"/AddUserFeebackcontroller"})
+public class AddUserFeebackcontroller extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,9 +53,14 @@ public class ViewRequestReController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-           int uid=12;
-       request.setAttribute("uid", uid);
-        request.getRequestDispatcher("MyReservation.jsp").forward(request, response);
+         int uid=12;
+        String refid=request.getParameter("refid");
+        int reid=0;
+        reid=Integer.parseInt(refid);
+        request.setAttribute("uidfeb", uid);
+        request.setAttribute("refid", refid);
+        request.getRequestDispatcher("AddFeebackUser.jsp").forward(request, response);
+        
     }
 
     /**
@@ -65,6 +75,26 @@ public class ViewRequestReController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String refid=request.getParameter("refeedid");
+        int reid=0;
+        
+        
+        String uid=request.getParameter("ufeedid");
+        int id = 0;
+        id= Integer.parseInt(uid);       
+        reid=Integer.parseInt(refid);
+
+        String issue = request.getParameter("IsuesDetail");
+        System.out.println("re:"+reid +" uid:"+id);
+        FeedbackDAO dao = new FeedbackDAOIplm();
+        boolean check = dao.addFeedback(new Feedback(0, issue,null,new Reservationduan(reid), new User(id)));
+        if(check==false){
+            response.sendRedirect( request.getContextPath()+"/addFeedbackController");
+            
+        }else{
+            
+            request.getRequestDispatcher("AddFeebackUser.jsp").forward(request, response);
+        }
     }
 
     /**

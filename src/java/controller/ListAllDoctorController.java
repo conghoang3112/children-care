@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewRequestReController", urlPatterns = {"/ViewRequestRe"})
-public class ViewRequestReController extends HttpServlet {
+@WebServlet(name = "ListAllDoctorController", urlPatterns = {"/ListAllDoctorController"})
+public class ListAllDoctorController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,6 +32,7 @@ public class ViewRequestReController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         
     }
 
@@ -48,9 +49,7 @@ public class ViewRequestReController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-           int uid=12;
-       request.setAttribute("uid", uid);
-        request.getRequestDispatcher("MyReservation.jsp").forward(request, response);
+         response.sendRedirect("ViewListDoctor.jsp");
     }
 
     /**

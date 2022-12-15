@@ -9,20 +9,23 @@ import java.util.Date;
 
 /**
  *
- * @author Admin
+ * @author duan1
  */
-public class FeedbackReply {
-
-    private int id;
+public class FeebackRepplyduan {
+     private int id;
     private Feedback feedback;
     private User user;
     private String content;
     private Date time;
 
-    public FeedbackReply() {
+    public FeebackRepplyduan() {
     }
 
-    public FeedbackReply(int id, Feedback feedback, User user, String content, Date time) {
+    public FeebackRepplyduan(int id) {
+        this.id = id;
+    }
+
+    public FeebackRepplyduan(int id, Feedback feedback, User user, String content, Date time) {
         this.id = id;
         this.feedback = feedback;
         this.user = user;
@@ -72,7 +75,7 @@ public class FeedbackReply {
 
     @Override
     public String toString() {
-        return "FeedbackReply{" + "id=" + id + ", feedback=" + feedback + ", user=" + user + ", content=" + content + ", time=" + time + '}';
+        return "FeebackRepplyduan{" + "id=" + id + ", feedback=" + feedback + ", user=" + user + ", content=" + content + ", time=" + time + '}';
     }
-
+    
 }

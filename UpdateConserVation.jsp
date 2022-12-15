@@ -13,7 +13,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My ReServation</title>
+        <title>update Conservation</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -25,7 +25,7 @@
 
             <div class="col-3 d-flex justify-content-center">
                 <div class="row d-flex align-content-center">
-                    <a class="logo" href="HomeUser.jsp">
+                    <a class="logo" href="UserHome.jsp">
                         <img src="" height="24" class="logo-light-mode" alt="Logo">
 
                     </a>
@@ -52,13 +52,12 @@
 
         <div class="row" style="    height: 25px;background-color: lightskyblue; width: 100%;">
              <nav class="d-flex justify-content-evenly">
-            <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
-            <a href="/children-care/ListAllDoctorController">Doctor</a> |
+           <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
+            <a href="/children-care/listDoctorController">Doctor</a> |
             <a href="/children-care//ViewReservation">All Reservation</a> |
-            <a href="/children-care/ViewCompletedReservaiotionController">Completed Reservation</a>|
+            <a href="/children-care/vieCompleteReservation">Completed Reservation</a>|
             <a href="/children-care/ViewRequestRe">Upcoming calendar</a>|
-            <a href="/children-care/ListFeedbackReply">Feedback</a>
-            
+            <a href="/children-care/viewFeedbackrepply">Feedback</a>
         </nav>
         </div>
         <div class="row ">
@@ -78,7 +77,7 @@
                                 </tr>
                                 <%
                                         try {
-                                            String sql = "  select p.first_name,p.last_name,r.date_booking,t.slot_time,r.[status],r.reservation_id from  DoctorProfile p ,Doctor d ,Reservation r,TimeSlot t where p.profile_id=d.profile_id and d.doctor_id=r.doctor_id and r.time_slot_id =t.slot_id and DATEDIFF(DAY, GETDATE(), date_booking)>=0  and r.[user_id]=? and r.[status]='ACCEPTED'";
+                                            String sql = "select p.first_name,p.last_name,r.date_booking,t.slot_time,r.[status],r.reservation_id from  DoctorProfile p ,Doctor d ,Reservation r,TimeSlot t where p.profile_id=d.profile_id and d.doctor_id=r.doctor_id and r.time_slot_id =t.slot_id and [status]='REQUESTED'  and r.[user_id]=? ";
                                             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
                                              
                                             Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ChildrenCare;User=sa;Password=sa");
@@ -94,7 +93,7 @@
                                         <td><%=rs.getString("date_booking")%></td>
                                         <td><%=rs.getString("slot_time")%></td>
                                         <td><%=rs.getString("status")%></td>
-                                        <td><a href="ViewDetail?reid=<%=rs.getString("reservation_id")%>">View</a></td>
+                                        <td><a href="ViewDetail?id=<%=rs.getString("reservation_id")%>">Update</a></td>
                                         
                                     </tr>
                                     

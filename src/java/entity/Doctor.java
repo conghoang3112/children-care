@@ -15,13 +15,17 @@ public class Doctor {
     private Account account;
     private Specialist specialist;
     private DoctorProfile doctorProfile;
+    private Room roomid;
 
-    public Doctor(int id, Account account, Specialist specialist, DoctorProfile doctorProfile) {
+    public Doctor(int id, Account account, Specialist specialist, DoctorProfile doctorProfile, Room roomid) {
         this.id = id;
         this.account = account;
         this.specialist = specialist;
         this.doctorProfile = doctorProfile;
+        this.roomid = roomid;
     }
+
+  
 
     public Doctor() {
     }
@@ -72,9 +76,19 @@ public class Doctor {
         this.specialist = specialist;
     }
 
+    public Room getRoomid() {
+        return roomid;
+    }
+
+    public void setRoomid(Room roomid) {
+        this.roomid = roomid;
+    }
+
     @Override
     public String toString() {
-        return "Doctor{" + "id=" + id + ", account=" + account + ", specialist=" + specialist + ", doctorProfile=" + doctorProfile + '}';
+        return "Doctor{" + "id=" + id + ", account=" + account + ", specialist=" + specialist + ", doctorProfile=" + doctorProfile + ", roomid=" + roomid + '}';
     }
+
+  
 
 }

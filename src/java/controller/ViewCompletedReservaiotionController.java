@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewRequestReController", urlPatterns = {"/ViewRequestRe"})
-public class ViewRequestReController extends HttpServlet {
+@WebServlet(name = "ViewCompletedReservaiotionController", urlPatterns = {"/ViewCompletedReservaiotionController"})
+public class ViewCompletedReservaiotionController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,8 +32,11 @@ public class ViewRequestReController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-    }
+         int uid=12;
+       request.setAttribute("uid", uid);
+        request.getRequestDispatcher("ViewlistCompleteReservation.jsp").forward(request, response);
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -48,9 +51,7 @@ public class ViewRequestReController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-           int uid=12;
-       request.setAttribute("uid", uid);
-        request.getRequestDispatcher("MyReservation.jsp").forward(request, response);
+        response.sendRedirect("listCompleteReservation.jsp");
     }
 
     /**

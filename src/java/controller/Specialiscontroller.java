@@ -5,8 +5,12 @@
  */
 package controller;
 
+import DAO.SpecialDAO;
+import entity.Doctor;
+import entity.Specialist;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author duan1
  */
-@WebServlet(name = "ViewRequestReController", urlPatterns = {"/ViewRequestRe"})
-public class ViewRequestReController extends HttpServlet {
+@WebServlet(name = "Specialiscontroller", urlPatterns = {"/Specialiscontroller"})
+public class Specialiscontroller extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +36,9 @@ public class ViewRequestReController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        SpecialDAO dao = new SpecialDAO();
         
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,9 +54,6 @@ public class ViewRequestReController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-           int uid=12;
-       request.setAttribute("uid", uid);
-        request.getRequestDispatcher("MyReservation.jsp").forward(request, response);
     }
 
     /**

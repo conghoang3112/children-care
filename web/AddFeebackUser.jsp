@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AddConservation</title>
+    <title>Add Feedback</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,7 +17,7 @@
 
         <div class="col-3 d-flex justify-content-center">
             <div class="row d-flex align-content-center">
-                <a class="logo" href="#">
+                <a class="logo" href="HomeUser.jsp">
                     <img src="" height="24" class="logo-light-mode" alt="Logo">
 
                 </a>
@@ -43,23 +43,30 @@
     </div>
 
     <div class="row" style="    height: 25px;background-color: lightskyblue; width: 100%;">
-        <nav class="d-flex justify-content-evenly">
-            <a href="#">Service</a> |
-            <a href="#">Conservation</a> |
-            <a href="#">Doctor</a> |
-            <a href="#">Special</a>
+           <nav class="d-flex justify-content-evenly">
+            <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
+            <a href="/children-care/ListAllDoctorController">Doctor</a> |
+            <a href="/children-care//ViewReservation">All Reservation</a> |
+            <a href="/children-care/ViewCompletedReservaiotionController">Completed Reservation</a>|
+            <a href="/children-care/ViewRequestRe">Upcoming calendar</a>|
+            <a href="/children-care/ListFeedbackReply">Feedback</a>
+            
         </nav>
     </div>
     <div class="row ">
         <div class="container pt-5 p-5">
             <h2>Feedback</h2>
            <div class="row pt-5 p-5">
-            <form action="">
+               <form action="AddUserFeebackcontroller" method="POST">
             <div class="row  d-flex ">
 
                 <div class="col ms-5 mt-5">
-                    <label for="isuseContetn">Isues : &nbsp;</label>
-                   <input name="isuseContetn" id="isuseContetn" >
+                    <label for="isuseContetn"> &nbsp;</label>
+                    <input  name="ufeedid" id="ufeedid" type="hidden" value="${uidfeb}" >
+                </div>
+                <div class="col ms-5 mt-5">
+                    <label for="isuseContetn"> &nbsp;</label>
+                    <input  name="refeedid" id="refeedid" type="hidden" value="${refid}" >
                 </div>
                 
 
@@ -67,7 +74,7 @@
             </div>
             <div class="row  d-flex ">
 
-                <div class="col ms-5 mt-5 pt-5">
+                <div class="col ms-5 ">
                     <label for="IsuesDetail">Isues : &nbsp;</label>
                    <textarea name="IsuesDetail" id="IsuesDetail" cols="100" rows="5"></textarea>
                 </div>

@@ -30,6 +30,12 @@ public class DoctorProfile {
     public DoctorProfile() {
     }
 
+    public DoctorProfile(int id, String firstName, String lastName) {
+        this.id = id;
+         this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public DoctorProfile(int id, Doctor doctor, String firstName, String lastName, Date dob, String avatar, boolean sex, String addressHospital) {
         this.id = id;
         this.doctor = doctor;

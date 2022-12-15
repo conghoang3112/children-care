@@ -30,6 +30,8 @@ public class Reservationduan {
         this.id = id;
     }
 
+    
+
     public Reservationduan(int id, TimeSlot timeSlot, Doctor doctor, Date dateBooking, String phoneContact, String status, String issue, User user) {
         this.id = id;
         this.timeSlot = timeSlot;

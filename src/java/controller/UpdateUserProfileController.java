@@ -61,13 +61,14 @@ public class UpdateUserProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-          UserDAOIplm dao = new UserDAOIplm();
-        String s=request.getParameter("id");
-       // int id= Integer.parseInt(s);
+           UserDAOIplm dao = new UserDAOIplm();
+        String s = request.getParameter("id");
+        // int id= Integer.parseInt(s);
         User user = new User();
-        user=dao.getUserByID(12);
-        System.out.println(user);
-        request.setAttribute("update",user);
+        user = dao.getUserByID(12);
+        
+        request.setAttribute("update", user);
+
         //System.out.println(user);
         request.getRequestDispatcher("UpdateUserProfile.jsp").forward(request, response);
     }
@@ -85,23 +86,38 @@ public class UpdateUserProfileController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(req, resp);
              processRequest(req, resp);
-        String fName=req.getParameter("fisrtName");
-        String lName=req.getParameter("lastName");
-        String phone=req.getParameter("phone");
-        String sex=req.getParameter("sex");
-        boolean sexdata= true;
-        if(sex.equals("Male")){
-            sexdata=true;
-        }else if(sex.equals("FeMale")){
-             sexdata=false;
-        }
-        String address =req.getParameter("address");
+        String fName = req.getParameter("fisrtName");
+        String lName = req.getParameter("lastName");
+        String phone = req.getParameter("phone");
+        String sex = req.getParameter("sex");
+        String image = req.getParameter("image");
+
+       // String realpatrh = req.getServletContext().getRealPath("/images");
         
-       String avate = req.getParameter("avata");
-       UserDAOIplm dao= new UserDAOIplm();
-       User user = new User(12, fName, lName, phone, address, avate, sexdata);
-      dao.UpdateUserbyId(user);
-      resp.sendRedirect(req.getContextPath()+"/ViewProifleUserController");
+        String fileName = null;
+
+
+
+            System.out.println("file1"+image);
+             boolean sexdata = true;
+        if (sex.equals("Male")) {
+            sexdata = true;
+        } else if (sex.equals("FeMale")) {
+            sexdata = false;
+        }
+        String address = req.getParameter("address");
+
+        String avate = req.getParameter("avata");
+        UserDAOIplm dao = new UserDAOIplm();
+
+        
+
+        
+        System.out.println(fileName);
+         System.out.println(image);
+        User user = new User(12, fName, lName, phone, address, image, sexdata);
+        dao.UpdateUserbyId(user);
+        resp.sendRedirect(req.getContextPath() + "/ViewProifleUserController");
     }
 
     /**

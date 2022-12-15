@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AddConservation</title>
+    <title>ListDoctor</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,7 +21,7 @@
 
         <div class="col-3 d-flex justify-content-center">
             <div class="row d-flex align-content-center">
-                <a class="logo" href="#">
+                <a class="logo" href="HomeUser.jsp">
                     <img src="" height="24" class="logo-light-mode" alt="Logo">
 
                 </a>
@@ -43,97 +47,69 @@
     </div>
 
     <div class="row" style="    height: 25px;background-color: lightskyblue; width: 100%;">
-        <nav class="d-flex justify-content-evenly">
-            <a href="#">Service</a> |
-            <a href="#">Conservation</a> |
-            <a href="#">Doctor</a> |
-            <a href="#">Special</a>
+          <nav class="d-flex justify-content-evenly">
+            <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
+            <a href="/children-care/ListAllDoctorController">Doctor</a> |
+            <a href="/children-care//ViewReservation">All Reservation</a> |
+            <a href="/children-care/ViewCompletedReservaiotionController">Completed Reservation</a>|
+            <a href="/children-care/ViewRequestRe">Upcoming calendar</a>|
+            <a href="/children-care/ListFeedbackReply">Feedback</a>
+            
         </nav>
     </div>
     <div class="row ">
         <div class="container pt-5 p-5">
-            <h2>Feedback</h2>
+            <h2>List Doctor</h2>
+            
+            <%
+                                        try {
+                                            String sql = "SElECT profile_id, first_name+' '+last_name,dob,avatar,sex,address_hospital FROM DoctorProfile";
+                                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+                                            Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ChildrenCare;User=sa;Password=sa");
+                                            Statement st = con.createStatement();
+                                            ResultSet rs = st.executeQuery(sql);
+                                            while (rs.next()) {
+                                    %>
             <div class="row pt-5 ps-5" style="height: 300px;">
                 <div class="col-2 pt-5 ">
-                    <img src="pic_trulli.jpg" alt="vatar">
-                    ></image>
-                </div>
-                7<div class="col-7 ">
-                    <div class="row pt-5 ">
-
-                        <p id="name"><label for="name">Name : &nbsp;</label>DOCRTOR NAME</p>
-
-                    </div>
-                    <div class="row ">
-
-                        <p id="Special"><label for="Special">Special : &nbsp;</label>Special NAME</p>
-
-                    </div>
-                    <div class="row ">
-
-                        <p id="Certificate"><label for="Special">Special : &nbsp;</label>Special</p>
-
-                    </div>
-                </div>
-                <div class="col ">
-                    <button type="button">Details</button>
-                </div>
-                <hr>
-            </div>
-            <div class="row pt-5 ps-5" style="height: 300px;">
-                <div class="col-2 pt-5 ">
-                    <img src="pic_trulli.jpg" alt="vatar">
-                    ></image>
+                    <img src="asset/doctors/<%=rs.getString(4)%>" alt="avatar">
+                    
                 </div>
                 <div class="col-7 ">
                     <div class="row pt-5 ">
 
-                        <p id="name"><label for="name">Name : &nbsp;</label>DOCRTOR NAME</p>
+                        <p id="name"><label for="name">Name : &nbsp;</label><%=rs.getString(2)%></p>
 
                     </div>
                     <div class="row ">
 
-                        <p id="Special"><label for="Special">Special : &nbsp;</label>Special NAME</p>
+                        <p id="Special"><label for="Special">DOB : &nbsp;</label><%=rs.getString(3)%></p>
 
                     </div>
                     <div class="row ">
 
-                        <p id="Certificate"><label for="Special">Special : &nbsp;</label>Special</p>
+                        <p id="Certificate"><label for="Special">Address : &nbsp;</label><%=rs.getString(6)%></p>
 
                     </div>
                 </div>
                 <div class="col ">
-                    <button type="button">Details</button>
+                    <a href="viewDoctorDetail?did=<%=rs.getInt(1)%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Detail</a>
                 </div>
                 <hr>
             </div>
-            <div class="row pt-5 ps-5" style="height: 300px;">
-                <div class="col-2 pt-5 ">
-                    <img src="pic_trulli.jpg" alt="vatar">
-                    ></image>
-                </div>
-                <div class="col-7 ">
-                    <div class="row pt-5 ">
+                                    <%
+                                            }
+                                        } catch (Exception ex) {
+                                            ex.printStackTrace();
+                                        }
+                                    %>
+            
+            
+            
+            
+       
 
-                        <p id="name"><label for="name">Name : &nbsp;</label>DOCRTOR NAME</p>
-
-                    </div>
-                    <div class="row ">
-
-                        <p id="Special"><label for="Special">Special : &nbsp;</label>Special NAME</p>
-
-                    </div>
-                    <div class="row ">
-
-                        <p id="Certificate"><label for="Special">Special : &nbsp;</label>Special</p>
-
-                    </div>
-                </div>
-                <div class="col ">
-                    <button type="button">Details</button>
-                </div>
-                <hr>
-            </div>
 
         </div>
 

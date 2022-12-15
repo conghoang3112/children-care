@@ -13,7 +13,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My ReServation</title>
+        <title>History of Medical Examination </title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -63,10 +63,13 @@
         </div>
         <div class="row ">
             <div class="container">
+                
                 <div class="row d-flex justify-content-center" style="text-align: center;">
                     <div class="col-8 pt-5">
+                        <h2> Reservation Compeleted</h2>
                         
-                        <form action="ViewReservationRequest" method="GET">
+                        <form action="ViewReservationRequest" method="GET" class="pt-5">
+                            
                             <input  value="${uid}" type="hidden" name="uid" id="uid"/>
                             <table class=" table table-bordered pt-5">
                                 <tr>
@@ -78,7 +81,7 @@
                                 </tr>
                                 <%
                                         try {
-                                            String sql = "  select p.first_name,p.last_name,r.date_booking,t.slot_time,r.[status],r.reservation_id from  DoctorProfile p ,Doctor d ,Reservation r,TimeSlot t where p.profile_id=d.profile_id and d.doctor_id=r.doctor_id and r.time_slot_id =t.slot_id and DATEDIFF(DAY, GETDATE(), date_booking)>=0  and r.[user_id]=? and r.[status]='ACCEPTED'";
+                                            String sql = "  select p.first_name,p.last_name,r.date_booking,t.slot_time,r.[status],r.reservation_id from  DoctorProfile p ,Doctor d ,Reservation r,TimeSlot t where p.profile_id=d.profile_id and d.doctor_id=r.doctor_id and r.time_slot_id =t.slot_id  and r.[user_id]=? and r.[status]='COMPLETED'";
                                             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
                                              
                                             Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ChildrenCare;User=sa;Password=sa");
@@ -94,7 +97,9 @@
                                         <td><%=rs.getString("date_booking")%></td>
                                         <td><%=rs.getString("slot_time")%></td>
                                         <td><%=rs.getString("status")%></td>
-                                        <td><a href="ViewDetail?reid=<%=rs.getString("reservation_id")%>">View</a></td>
+                                        <td><a href="ViewDetail?reid=<%=rs.getString("reservation_id")%>">View</a> |&nbsp; 
+                                        <a href="AddUserFeebackcontroller?refid=<%=rs.getString("reservation_id")%>">Feedback</a>
+                                        </td>
                                         
                                     </tr>
                                     

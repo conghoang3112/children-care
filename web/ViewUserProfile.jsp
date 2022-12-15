@@ -24,7 +24,7 @@
 
             <div class="col-3 d-flex justify-content-center">
                 <div class="row d-flex align-content-center">
-                    <a class="logo" href="#">
+                    <a class="logo" href="HomeUser.jsp">
 
                         <H2>Home</H2>
 
@@ -51,12 +51,15 @@
         </div>
 
         <div class="row" style="    height: 25px;background-color: lightskyblue; width: 100%;">
-            <nav class="d-flex justify-content-evenly">
-                <a href="#">Service</a> |
-                <a href="#">Conservation</a> |
-                <a href="#">Doctor</a> |
-                <a href="#">Special</a>
-            </nav>
+             <nav class="d-flex justify-content-evenly">
+            <a href="/children-care/ViewProifleUserController">UsserProfile</a> |
+            <a href="/children-care/ListAllDoctorController">Doctor</a> |
+            <a href="/children-care//ViewReservation">All Reservation</a> |
+            <a href="/children-care/ViewCompletedReservaiotionController">Completed Reservation</a>|
+            <a href="/children-care/ViewRequestRe">Upcoming calendar</a>|
+            <a href="/children-care/ListFeedbackReply">Feedback</a>
+            
+        </nav>
         </div>
         <div class="row ">
             <div class="container">
@@ -140,7 +143,7 @@
                         <div class=" d-flex flex-column  justify-content-center align-items-center"
                              style="width:302px;height:302px;border:1px solid #000 ;background-size: cover;">
 
-                             <img style=" background-size: cover ;height: 300px ;width: 300px"  src="asset/doctors/doctor-01.jpg" class="img-fliud text-center " alt="avata" />
+                             <img style=" background-size: cover ;height: 300px ;width: 300px"  src="" class="img-fliud text-center " alt="avata" />
                         </div>
 
                     </div>

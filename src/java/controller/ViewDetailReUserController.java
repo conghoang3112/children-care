@@ -35,20 +35,20 @@ public class ViewDetailReUserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id=0;
+         int id=0;
       String uid = request.getParameter("reid");
       
 
           id=Integer.parseInt(uid);
       
-         
-      
+              
       
       
          DuanReservationDAO dao = new DuanReservationDAOIplm();
     Reservationduan re = dao.getReservationDetail(12, id);
 
         request.setAttribute("re", re);
+         
         
         request.getRequestDispatcher("ViewUserReservationDetail.jsp").forward(request, response);
         
