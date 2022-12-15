@@ -16,7 +16,7 @@
 
       <ul class="sidebar-menu pt-3">
 <%--        <li><a href="index.html"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>--%>
-        <li><a href="appointment.html"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Reservation</a></li>
+        <li><a href="${pageContext.request.contextPath}/reservation"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Reservation</a></li>
 
         <li class="sidebar-dropdown">
           <a href="javascript:void(0)"><i class="uil uil-user me-2 d-inline-block"></i>Doctors</a>
@@ -67,8 +67,8 @@
           <a href="javascript:void(0)"><i class="uil uil-flip-h me-2 d-inline-block"></i>Blogs</a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="blogs.html">Blogs</a></li>
-              <li><a href="blog-detail.html">Blog Detail</a></li>
+              <li><a href="${pageContext.request.contextPath}/blogs">Blogs</a></li>
+              <li><a href="${pageContext.request.contextPath}/manager-role/blog/detail.jsp">Blog Detail</a></li>
             </ul>
           </div>
         </li>

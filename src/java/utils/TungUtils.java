@@ -49,6 +49,8 @@ public class TungUtils {
 		File folderUpload = new File(TungConstant.PATH_IMAGE_DOCTOR);
 		return folderUpload;
 	}
+        
+       
 
 	public static File getFolderUploadPatient() {
 		File folderUpload = new File(TungConstant.PATH_IMAGE_PATIENT);
